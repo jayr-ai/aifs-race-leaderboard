@@ -1,0 +1,263 @@
+{
+  "asOf": "2026-07-09",
+  "timezone": "America/Los_Angeles",
+  "generatedAtUtc": "2026-07-09T07:44:27+00:00",
+  "windows": {
+    "day": {
+      "start": "2026-07-09",
+      "end": "2026-07-09",
+      "days": 1,
+      "label": "Thu, Jul 9"
+    },
+    "week": {
+      "start": "2026-07-03",
+      "end": "2026-07-09",
+      "days": 7,
+      "label": "Jul 3 to Jul 9 2026"
+    },
+    "month": {
+      "start": "2026-06-15",
+      "end": "2026-07-09",
+      "days": 25,
+      "label": "Jun 15 to Jul 9 2026"
+    }
+  },
+  "roster": [
+    {
+      "key": "caleb",
+      "name": "Caleb Chase"
+    },
+    {
+      "key": "dan",
+      "name": "Dan Baldasso"
+    }
+  ],
+  "rosterNames": "Caleb Chase, Dan Baldasso",
+  "team": {
+    "day": {
+      "levelTargetsCents": [
+        666667,
+        1333333,
+        2000000
+      ],
+      "collectedCents": 0,
+      "level": 0,
+      "nextLevel": 1,
+      "nextTargetCents": 666667,
+      "toReachNextCents": 666667,
+      "pctToNextNum": 0.0,
+      "levelStates": [
+        "in_reach",
+        "locked",
+        "locked"
+      ],
+      "complete": false
+    },
+    "week": {
+      "levelTargetsCents": [
+        4666667,
+        9333333,
+        14000000
+      ],
+      "collectedCents": 0,
+      "level": 0,
+      "nextLevel": 1,
+      "nextTargetCents": 4666667,
+      "toReachNextCents": 4666667,
+      "pctToNextNum": 0.0,
+      "levelStates": [
+        "in_reach",
+        "locked",
+        "locked"
+      ],
+      "complete": false
+    },
+    "month": {
+      "levelTargetsCents": [
+        20000000,
+        40000000,
+        60000000
+      ],
+      "collectedCents": 499700,
+      "level": 0,
+      "nextLevel": 1,
+      "nextTargetCents": 20000000,
+      "toReachNextCents": 19500300,
+      "pctToNextNum": 2.0,
+      "levelStates": [
+        "in_reach",
+        "locked",
+        "locked"
+      ],
+      "complete": false
+    }
+  },
+  "race": {
+    "day": {
+      "targetCents": 500000,
+      "rankedByCash": false,
+      "rankedByLabel": "Ranked by open pipeline",
+      "bannerNote": "No cash collected today. First on the board wins. Ranked by open pipeline until then.",
+      "teamCashCents": 0,
+      "rows": [
+        {
+          "key": "caleb",
+          "name": "Caleb Chase",
+          "cashCents": 0,
+          "dealsWon": 0,
+          "openDeals": 85,
+          "meetings": 0,
+          "closeRate": "0.0%",
+          "rank": 1,
+          "pctToGoalNum": 0.0,
+          "toGoCents": 500000,
+          "leading": true,
+          "badges": [
+            "Leading",
+            "Pipeline King",
+            "Top Closer",
+            "First Deal"
+          ],
+          "lineA": null,
+          "lineB": "Setting the pace"
+        },
+        {
+          "key": "dan",
+          "name": "Dan Baldasso",
+          "cashCents": 0,
+          "dealsWon": 0,
+          "openDeals": 57,
+          "meetings": 0,
+          "closeRate": "0.0%",
+          "rank": 2,
+          "pctToGoalNum": 0.0,
+          "toGoCents": 500000,
+          "leading": false,
+          "badges": [],
+          "lineA": null,
+          "lineB": "Tied with Caleb Chase"
+        }
+      ]
+    },
+    "week": {
+      "targetCents": 3500000,
+      "rankedByCash": false,
+      "rankedByLabel": "Ranked by open pipeline",
+      "bannerNote": "No cash collected this week. First on the board wins. Ranked by open pipeline until then.",
+      "teamCashCents": 0,
+      "rows": [
+        {
+          "key": "caleb",
+          "name": "Caleb Chase",
+          "cashCents": 0,
+          "dealsWon": 0,
+          "openDeals": 85,
+          "meetings": 48,
+          "closeRate": "0.0%",
+          "rank": 1,
+          "pctToGoalNum": 0.0,
+          "toGoCents": 3500000,
+          "leading": true,
+          "badges": [
+            "Leading",
+            "Pipeline King",
+            "Top Closer",
+            "First Deal"
+          ],
+          "lineA": null,
+          "lineB": "Setting the pace"
+        },
+        {
+          "key": "dan",
+          "name": "Dan Baldasso",
+          "cashCents": 0,
+          "dealsWon": 0,
+          "openDeals": 57,
+          "meetings": 8,
+          "closeRate": "0.0%",
+          "rank": 2,
+          "pctToGoalNum": 0.0,
+          "toGoCents": 3500000,
+          "leading": false,
+          "badges": [],
+          "lineA": null,
+          "lineB": "Tied with Caleb Chase"
+        }
+      ]
+    },
+    "month": {
+      "targetCents": 15000000,
+      "rankedByCash": true,
+      "rankedByLabel": "Ranked by cash, then deals won, then pipeline owned",
+      "bannerNote": null,
+      "teamCashCents": 499700,
+      "rows": [
+        {
+          "key": "caleb",
+          "name": "Caleb Chase",
+          "cashCents": 499700,
+          "dealsWon": 1,
+          "openDeals": 85,
+          "meetings": 49,
+          "closeRate": "1.2%",
+          "rank": 1,
+          "pctToGoalNum": 3.0,
+          "toGoCents": 14500300,
+          "leading": true,
+          "badges": [
+            "Leading",
+            "Pipeline King",
+            "Top Closer",
+            "First Deal"
+          ],
+          "lineA": "Every deal counts",
+          "lineB": "Setting the pace"
+        },
+        {
+          "key": "dan",
+          "name": "Dan Baldasso",
+          "cashCents": 0,
+          "dealsWon": 0,
+          "openDeals": 57,
+          "meetings": 15,
+          "closeRate": "0.0%",
+          "rank": 2,
+          "pctToGoalNum": 0.0,
+          "toGoCents": 15000000,
+          "leading": false,
+          "badges": [],
+          "lineA": "First on the board wins",
+          "lineB": "$4,997 to pass Caleb Chase"
+        }
+      ]
+    }
+  },
+  "teamTotals": {
+    "day": {
+      "cashCents": 0,
+      "dealsWon": 0,
+      "openDeals": 142,
+      "meetingsBooked": 0
+    },
+    "week": {
+      "cashCents": 0,
+      "dealsWon": 0,
+      "openDeals": 142,
+      "meetingsBooked": 56
+    },
+    "month": {
+      "cashCents": 499700,
+      "dealsWon": 1,
+      "openDeals": 142,
+      "meetingsBooked": 64
+    }
+  },
+  "audit": {
+    "excludedTestRecords": 8,
+    "totalOpportunitiesPulled": 199,
+    "unattributedCashAllTime": "$0.00",
+    "offboardedClosers": [
+      "Matthew Burns"
+    ]
+  }
+}

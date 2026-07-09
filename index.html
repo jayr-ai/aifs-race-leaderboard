@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Funding Solutions: The Leaderboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#FFFFFF;
+  --paper:#F8FAFC;
+  --navy:#1E293B;
+  --slate-700:#334155;
+  --slate-600:#475569;
+  --slate-500:#64748B;
+  --slate-400:#94A3B8;
+  --slate-300:#CBD5E1;
+  --slate-200:#E2E8F0;
+  --slate-100:#F1F5F9;
+  --slate-50:#F8FAFC;
+  --blue:#60A5FA;
+  --blue-ink:#2F6FD6;
+  --sky:#93C5FD;
+  --sky-2:#BFDBFE;
+  --pale:#DBEAFE;
+  --blue-soft:#EFF6FF;
+  --gold:#B78628;
+  --gold-bright:#D4A73B;
+  --gold-wash:#FBF6E9;
+  --gold-line:rgba(183,134,40,.34);
+  --shadow-sm:0 1px 2px rgba(30,41,59,.04), 0 1px 3px rgba(30,41,59,.05);
+  --shadow-md:0 1px 2px rgba(30,41,59,.04), 0 8px 22px rgba(30,41,59,.07);
+  --shadow-gold:0 4px 12px rgba(183,134,40,.14), 0 20px 48px rgba(183,134,40,.17);
+  --font-display:"Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--paper); color:var(--navy); font-family:var(--font);
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{ max-width:760px; margin:0 auto; padding:40px 20px 60px; }
+.brand{ font-size:13px; font-weight:600; color:var(--blue-ink); text-decoration:none; }
+h1{
+  font-family:var(--font-display); font-weight:300; font-size:36px; letter-spacing:-0.72px;
+  color:var(--navy); margin:6px 0 10px;
+}
+h1 b{ font-weight:700; }
+.subtext{ font-size:13px; color:var(--slate-500); padding-bottom:16px; border-bottom:1px solid var(--slate-200); }
+.subtext .asof{ color:var(--slate-400); }
+
+.tabs{
+  margin-top:16px; display:flex; gap:4px; background:var(--white);
+  border:1px solid var(--slate-200); border-radius:14px; padding:5px; box-shadow:var(--shadow-sm);
+}
+.tab{
+  appearance:none; border:0; cursor:pointer; flex:1 1 0; font-family:inherit; font-size:14px;
+  font-weight:600; color:var(--slate-500); min-height:46px; padding:10px 6px; border-radius:10px;
+  background:transparent; text-align:center; transition:color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.tab:hover{ color:var(--navy); }
+.tab.active{
+  background:linear-gradient(150deg, var(--sky), var(--blue)); color:var(--white);
+  box-shadow:0 3px 10px rgba(96,165,250,.34);
+}
+
+.wpanel{ display:none; }
+.wpanel.active{ display:block; }
+
+.ladder{
+  margin-top:16px; background:var(--blue-soft); border:1px solid var(--pale); border-radius:16px;
+  padding:20px 22px;
+}
+.ladder-hd{ display:flex; align-items:baseline; justify-content:space-between; }
+.ladder-tag{ font-size:11px; font-weight:700; letter-spacing:.06em; color:var(--blue-ink); text-transform:uppercase; }
+.ladder-level{ font-family:var(--font-display); font-size:20px; font-weight:600; color:var(--navy); margin-left:6px; }
+.ladder-level b{ color:var(--blue-ink); }
+.ladder-collected{ text-align:right; }
+.ladder-collected .amt{ font-family:var(--font-display); font-size:26px; font-weight:700; color:var(--blue-ink); }
+.ladder-collected .lbl{ display:block; font-size:10px; font-weight:700; letter-spacing:.06em; color:var(--slate-400); text-transform:uppercase; }
+
+.ladder-bar{ display:flex; gap:3px; height:8px; margin:14px 0 12px; border-radius:6px; overflow:hidden; background:var(--slate-200); }
+.ladder-bar span{ flex:1 1 0; background:var(--slate-200); }
+.ladder-bar span.reached{ background:var(--blue); }
+.ladder-bar span.in_reach{ background:var(--sky-2); }
+
+.levels{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.level-box{ border:1px solid var(--slate-200); border-radius:10px; padding:10px 12px; background:var(--white); }
+.level-box.in_reach{ border-color:var(--blue); box-shadow:0 0 0 1px var(--blue) inset; }
+.level-box .ll{ font-size:10px; font-weight:700; letter-spacing:.05em; color:var(--slate-400); text-transform:uppercase; }
+.level-box .lv{ font-family:var(--font-display); font-size:17px; font-weight:700; color:var(--navy); margin:2px 0; }
+.level-box .ls{ font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.03em; }
+.level-box.reached .ls{ color:var(--blue-ink); }
+.level-box.in_reach .ls{ color:var(--blue-ink); }
+.level-box.locked .ls{ color:var(--slate-400); }
+.ladder-foot{ display:flex; justify-content:space-between; margin-top:12px; font-size:12px; color:var(--slate-600); }
+.ladder-foot .pct{ font-weight:700; color:var(--blue-ink); }
+
+.races-hd{ font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--slate-400); text-transform:uppercase; margin:28px 0 6px; }
+.race-title{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:10px; }
+.race-title h2{ font-family:var(--font-display); font-size:15px; font-weight:700; margin:0; color:var(--navy); text-transform:uppercase; letter-spacing:.02em; }
+.race-title .note{ font-size:12px; color:var(--slate-400); }
+
+.banner{
+  background:var(--blue-soft); border:1px solid var(--pale); border-radius:12px; padding:12px 14px;
+  font-size:13px; color:var(--slate-600); margin-bottom:14px;
+}
+
+.rcard{ border:1px solid var(--slate-200); border-radius:18px; padding:20px 22px; background:var(--white); margin-bottom:14px; }
+.rcard.leader{
+  border:1px solid var(--gold-line); box-shadow:var(--shadow-gold);
+  background:
+    radial-gradient(120% 150% at 100% -20%, rgba(212,167,59,.14), rgba(0,0,0,0) 62%),
+    linear-gradient(155deg, var(--gold-wash) 0%, var(--white) 70%);
+}
+.rcard-hd{ display:flex; align-items:center; gap:12px; }
+.rrank{ font-family:var(--font-display); font-size:20px; font-weight:700; color:var(--slate-400); width:20px; }
+.rcard.leader .rrank{ color:var(--gold); }
+.avatar{
+  width:40px; height:40px; border-radius:999px; display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-weight:700; font-size:14px; color:var(--slate-500);
+  background:var(--slate-100); border:1px solid var(--slate-200); flex:none;
+}
+.rcard.leader .avatar{ color:var(--gold); background:var(--white); border-color:var(--gold-line); }
+.rname{ font-family:var(--font-display); font-weight:700; font-size:16px; color:var(--navy); }
+.rname .lead-tag{
+  font-family:var(--font); font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--gold); margin-left:6px;
+}
+.chips{ margin-top:4px; display:flex; gap:6px; flex-wrap:wrap; }
+.chip{
+  font-size:10.5px; font-weight:600; color:var(--gold); background:var(--gold-wash);
+  border:1px solid var(--gold-line); border-radius:999px; padding:2px 9px;
+}
+.rcard:not(.leader) .chip{ color:var(--blue-ink); background:var(--blue-soft); border-color:var(--pale); }
+
+.rprogress{ margin-top:16px; }
+.rp-row{ display:flex; align-items:baseline; justify-content:space-between; }
+.rp-amt{ font-family:var(--font-display); font-size:24px; font-weight:700; color:var(--slate-400); }
+.rp-amt.ok{ color:var(--gold); }
+.rcard:not(.leader) .rp-amt.ok{ color:var(--blue-ink); }
+.rp-goal{ font-size:13px; color:var(--slate-400); font-weight:500; }
+.rp-pct{ text-align:right; font-size:12px; font-weight:700; color:var(--slate-400); }
+.rp-pct .n{ font-size:15px; }
+.rp-bar{ height:8px; border-radius:6px; background:var(--slate-200); margin:8px 0; overflow:hidden; }
+.rp-bar > div{ height:100%; background:var(--gold); border-radius:6px; }
+.rcard:not(.leader) .rp-bar > div{ background:var(--blue); }
+.rp-foot{ display:flex; justify-content:space-between; font-size:12px; }
+.rp-foot .togo{ color:var(--slate-600); font-weight:600; }
+.rp-foot .flavor{ color:var(--gold); font-weight:600; }
+.rcard:not(.leader) .rp-foot .flavor{ color:var(--blue-ink); }
+
+.rstats{ display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:16px; padding-top:14px; border-top:1px solid var(--slate-200); }
+.rstat{ text-align:center; }
+.rstat .sv{ font-family:var(--font-display); font-size:17px; font-weight:700; color:var(--navy); }
+.rstat .sl{ font-size:9.5px; font-weight:700; letter-spacing:.05em; color:var(--slate-400); text-transform:uppercase; margin-top:2px; }
+
+.rline-b{ text-align:right; margin-top:12px; font-size:12px; font-weight:600; color:var(--gold); }
+.rcard:not(.leader) .rline-b{ color:var(--blue-ink); }
+
+.totals{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:28px; }
+.tile{ background:var(--white); border:1px solid var(--slate-200); border-radius:12px; padding:14px; text-align:center; }
+.tile.hi{ border-color:var(--pale); background:var(--blue-soft); }
+.tile .tv{ font-family:var(--font-display); font-size:19px; font-weight:700; color:var(--navy); }
+.tile.hi .tv{ color:var(--blue-ink); }
+.tile .tl{ font-size:10px; font-weight:700; letter-spacing:.04em; color:var(--slate-400); text-transform:uppercase; margin-top:3px; }
+
+footer{ margin-top:36px; padding-top:16px; border-top:1px solid var(--slate-200); font-size:12px; color:var(--slate-400); }
+@media (max-width:520px){
+  .levels, .rstats{ grid-template-columns:repeat(2,1fr); }
+  .totals{ grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="brand" href="#">AI Funding Solutions</a>
+  <h1>The <b>Leaderboard</b></h1>
+
+  <div class="tabs" role="tablist" aria-label="Leaderboard period">
+    <!--TABS_START--><button class="tab" role="tab" data-win="day" onclick="raceSwitchWin('day')">Daily</button><button class="tab" role="tab" data-win="week" onclick="raceSwitchWin('week')">Weekly</button><button class="tab active" role="tab" data-win="month" onclick="raceSwitchWin('month')">Monthly</button><script>function raceSwitchWin(k){document.querySelectorAll(".tab").forEach(function(b){b.classList.toggle("active", b.dataset.win===k);});document.querySelectorAll(".wpanel").forEach(function(p){p.classList.toggle("active", p.dataset.win===k);});}</script><!--TABS_END-->
+  </div>
+
+  <!--PANELS_START--><div class="wpanel" data-win="day" role="tabpanel"><div class="subtext">GoHighLevel opportunities + Stripe payments &middot; 9 Jul 2026 &middot; <span class="asof">as of 9 Jul 2026</span></div><div class="ladder"><div class="ladder-hd"><div><span class="ladder-tag">Team goal</span><span class="ladder-level">Level <b>0</b> of 3</span></div><div class="ladder-collected"><span class="amt">$0</span><span class="lbl">Collected</span></div></div><div class="ladder-bar"><span class="in_reach"></span><span class=""></span><span class=""></span></div><div class="levels"><div class="level-box in_reach"><div class="ll">Level 1</div><div class="lv">$6,667</div><div class="ls">In reach</div></div><div class="level-box locked"><div class="ll">Level 2</div><div class="lv">$13,333</div><div class="ls">Locked</div></div><div class="level-box locked"><div class="ll">Level 3</div><div class="lv">$20,000</div><div class="ls">Locked</div></div></div><div class="ladder-foot"><span>$6,667 to reach $6,667</span><span><span class="pct">0%</span> to Level 1</span></div></div><div class="races-hd">Individual races</div><div class="race-title"><h2>Race to $5,000</h2><span class="note">Ranked by open pipeline</span></div><div class="banner">No cash collected today. First on the board wins. Ranked by open pipeline until then.</div><article class="rcard leader"><div class="rcard-hd"><span class="rrank">1</span><span class="avatar">CC</span><div><span class="rname">Caleb Chase <span class="lead-tag">Leading</span></span><div class="chips"><span class="chip">Pipeline King</span><span class="chip">Top Closer</span><span class="chip">First Deal</span></div></div></div><div class="rprogress"><div class="rp-row"><span class="rp-amt ">$0</span><span class="rp-goal">of $5,000 goal</span><span class="rp-pct"><span class="n">0%</span><br>to goal</span></div><div class="rp-bar"><div style="width:0%"></div></div><div class="rp-foot"><span class="togo">$5,000 to go</span><span></span></div></div><div class="rstats"><div class="rstat"><div class="sv">0</div><div class="sl">Deals won</div></div><div class="rstat"><div class="sv">85</div><div class="sl">Open deals</div></div><div class="rstat"><div class="sv">0</div><div class="sl">Meetings</div></div><div class="rstat"><div class="sv">0.0%</div><div class="sl">Close rate</div></div></div><div class="rline-b">Setting the pace</div></article><article class="rcard"><div class="rcard-hd"><span class="rrank">2</span><span class="avatar">DB</span><div><span class="rname">Dan Baldasso</span></div></div><div class="rprogress"><div class="rp-row"><span class="rp-amt ">$0</span><span class="rp-goal">of $5,000 goal</span><span class="rp-pct"><span class="n">0%</span><br>to goal</span></div><div class="rp-bar"><div style="width:0%"></div></div><div class="rp-foot"><span class="togo">$5,000 to go</span><span></span></div></div><div class="rstats"><div class="rstat"><div class="sv">0</div><div class="sl">Deals won</div></div><div class="rstat"><div class="sv">57</div><div class="sl">Open deals</div></div><div class="rstat"><div class="sv">0</div><div class="sl">Meetings</div></div><div class="rstat"><div class="sv">0.0%</div><div class="sl">Close rate</div></div></div><div class="rline-b">Tied with Caleb Chase</div></article><div class="totals"><div class="tile hi"><div class="tv">$0</div><div class="tl">Cash collected</div></div><div class="tile"><div class="tv">0</div><div class="tl">Deals won</div></div><div class="tile"><div class="tv">142</div><div class="tl">Open deals</div></div><div class="tile"><div class="tv">0</div><div class="tl">Meetings booked</div></div></div></div>
+<div class="wpanel" data-win="week" role="tabpanel"><div class="subtext">GoHighLevel opportunities + Stripe payments &middot; 3 Jul to 9 Jul 2026 &middot; <span class="asof">as of 9 Jul 2026</span></div><div class="ladder"><div class="ladder-hd"><div><span class="ladder-tag">Team goal</span><span class="ladder-level">Level <b>0</b> of 3</span></div><div class="ladder-collected"><span class="amt">$0</span><span class="lbl">Collected</span></div></div><div class="ladder-bar"><span class="in_reach"></span><span class=""></span><span class=""></span></div><div class="levels"><div class="level-box in_reach"><div class="ll">Level 1</div><div class="lv">$46,667</div><div class="ls">In reach</div></div><div class="level-box locked"><div class="ll">Level 2</div><div class="lv">$93,333</div><div class="ls">Locked</div></div><div class="level-box locked"><div class="ll">Level 3</div><div class="lv">$140,000</div><div class="ls">Locked</div></div></div><div class="ladder-foot"><span>$46,667 to reach $46,667</span><span><span class="pct">0%</span> to Level 1</span></div></div><div class="races-hd">Individual races</div><div class="race-title"><h2>Race to $35,000</h2><span class="note">Ranked by open pipeline</span></div><div class="banner">No cash collected this week. First on the board wins. Ranked by open pipeline until then.</div><article class="rcard leader"><div class="rcard-hd"><span class="rrank">1</span><span class="avatar">CC</span><div><span class="rname">Caleb Chase <span class="lead-tag">Leading</span></span><div class="chips"><span class="chip">Pipeline King</span><span class="chip">Top Closer</span><span class="chip">First Deal</span></div></div></div><div class="rprogress"><div class="rp-row"><span class="rp-amt ">$0</span><span class="rp-goal">of $35,000 goal</span><span class="rp-pct"><span class="n">0%</span><br>to goal</span></div><div class="rp-bar"><div style="width:0%"></div></div><div class="rp-foot"><span class="togo">$35,000 to go</span><span></span></div></div><div class="rstats"><div class="rstat"><div class="sv">0</div><div class="sl">Deals won</div></div><div class="rstat"><div class="sv">85</div><div class="sl">Open deals</div></div><div class="rstat"><div class="sv">48</div><div class="sl">Meetings</div></div><div class="rstat"><div class="sv">0.0%</div><div class="sl">Close rate</div></div></div><div class="rline-b">Setting the pace</div></article><article class="rcard"><div class="rcard-hd"><span class="rrank">2</span><span class="avatar">DB</span><div><span class="rname">Dan Baldasso</span></div></div><div class="rprogress"><div class="rp-row"><span class="rp-amt ">$0</span><span class="rp-goal">of $35,000 goal</span><span class="rp-pct"><span class="n">0%</span><br>to goal</span></div><div class="rp-bar"><div style="width:0%"></div></div><div class="rp-foot"><span class="togo">$35,000 to go</span><span></span></div></div><div class="rstats"><div class="rstat"><div class="sv">0</div><div class="sl">Deals won</div></div><div class="rstat"><div class="sv">57</div><div class="sl">Open deals</div></div><div class="rstat"><div class="sv">8</div><div class="sl">Meetings</div></div><div class="rstat"><div class="sv">0.0%</div><div class="sl">Close rate</div></div></div><div class="rline-b">Tied with Caleb Chase</div></article><div class="totals"><div class="tile hi"><div class="tv">$0</div><div class="tl">Cash collected</div></div><div class="tile"><div class="tv">0</div><div class="tl">Deals won</div></div><div class="tile"><div class="tv">142</div><div class="tl">Open deals</div></div><div class="tile"><div class="tv">56</div><div class="tl">Meetings booked</div></div></div></div>
+<div class="wpanel active" data-win="month" role="tabpanel"><div class="subtext">GoHighLevel opportunities + Stripe payments &middot; 15 Jun to 9 Jul 2026 &middot; <span class="asof">as of 9 Jul 2026</span></div><div class="ladder"><div class="ladder-hd"><div><span class="ladder-tag">Team goal</span><span class="ladder-level">Level <b>0</b> of 3</span></div><div class="ladder-collected"><span class="amt">$4,997</span><span class="lbl">Collected</span></div></div><div class="ladder-bar"><span class="in_reach"></span><span class=""></span><span class=""></span></div><div class="levels"><div class="level-box in_reach"><div class="ll">Level 1</div><div class="lv">$200,000</div><div class="ls">In reach</div></div><div class="level-box locked"><div class="ll">Level 2</div><div class="lv">$400,000</div><div class="ls">Locked</div></div><div class="level-box locked"><div class="ll">Level 3</div><div class="lv">$600,000</div><div class="ls">Locked</div></div></div><div class="ladder-foot"><span>$195,003 to reach $200,000</span><span><span class="pct">2%</span> to Level 1</span></div></div><div class="races-hd">Individual races</div><div class="race-title"><h2>Race to $150,000</h2><span class="note">Ranked by cash, then deals won, then pipeline owned</span></div><article class="rcard leader"><div class="rcard-hd"><span class="rrank">1</span><span class="avatar">CC</span><div><span class="rname">Caleb Chase <span class="lead-tag">Leading</span></span><div class="chips"><span class="chip">Pipeline King</span><span class="chip">Top Closer</span><span class="chip">First Deal</span></div></div></div><div class="rprogress"><div class="rp-row"><span class="rp-amt ok">$4,997</span><span class="rp-goal">of $150,000 goal</span><span class="rp-pct"><span class="n">3%</span><br>to goal</span></div><div class="rp-bar"><div style="width:3%"></div></div><div class="rp-foot"><span class="togo">$145,003 to go</span><span class="flavor">Every deal counts</span></div></div><div class="rstats"><div class="rstat"><div class="sv">1</div><div class="sl">Deals won</div></div><div class="rstat"><div class="sv">85</div><div class="sl">Open deals</div></div><div class="rstat"><div class="sv">49</div><div class="sl">Meetings</div></div><div class="rstat"><div class="sv">1.2%</div><div class="sl">Close rate</div></div></div><div class="rline-b">Setting the pace</div></article><article class="rcard"><div class="rcard-hd"><span class="rrank">2</span><span class="avatar">DB</span><div><span class="rname">Dan Baldasso</span></div></div><div class="rprogress"><div class="rp-row"><span class="rp-amt ">$0</span><span class="rp-goal">of $150,000 goal</span><span class="rp-pct"><span class="n">0%</span><br>to goal</span></div><div class="rp-bar"><div style="width:0%"></div></div><div class="rp-foot"><span class="togo">$150,000 to go</span><span class="flavor">First on the board wins</span></div></div><div class="rstats"><div class="rstat"><div class="sv">0</div><div class="sl">Deals won</div></div><div class="rstat"><div class="sv">57</div><div class="sl">Open deals</div></div><div class="rstat"><div class="sv">15</div><div class="sl">Meetings</div></div><div class="rstat"><div class="sv">0.0%</div><div class="sl">Close rate</div></div></div><div class="rline-b">$4,997 to pass Caleb Chase</div></article><div class="totals"><div class="tile hi"><div class="tv">$4,997</div><div class="tl">Cash collected</div></div><div class="tile"><div class="tv">1</div><div class="tl">Deals won</div></div><div class="tile"><div class="tv">142</div><div class="tl">Open deals</div></div><div class="tile"><div class="tv">64</div><div class="tl">Meetings booked</div></div></div></div><!--PANELS_END-->
+
+  <footer>
+    Refreshed once a day &middot; GoHighLevel opportunities plus Stripe payments
+  </footer>
+</div>
+</body>
+</html>
