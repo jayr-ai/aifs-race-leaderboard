@@ -1,0 +1,41 @@
+{
+  "asOf": "2026-07-09",
+  "source": "GoHighLevel opportunities + Stripe payments (live)",
+  "rankBy": "cash, then deals won, then pipeline owned",
+  "cashTargetPerRep": 150000,
+  "teamTiers": [200000, 400000, 600000],
+  "reconciliation": { "ghlCash": 4997, "stripeCash": 4997, "deltaCents": 0, "status": "reconciled", "checkedAt": "2026-07-09T18:50:00+10:00" },
+  "roster": ["Caleb Chase", "Dan Baldasso"],
+  "periods": {
+    "daily": {
+      "label": "Today",
+      "window": "9 Jul 2026",
+      "targetPerRep": 5000,
+      "team": { "cash": 0, "dealsWon": 0, "pipelineOwned": 150, "apptsBooked": null, "tiers": [6667, 13333, 20000] },
+      "reps": [
+        { "rank": 1, "name": "Caleb Chase", "first": "Caleb", "cash": 0, "target": 5000, "dealsWon": 0, "pipelineOwned": 92, "apptsBooked": null, "closeRate": "0%", "ghlId": "KyR0lFZOC0l0GQHM6SLv" },
+        { "rank": 2, "name": "Dan Baldasso", "first": "Dan", "cash": 0, "target": 5000, "dealsWon": 0, "pipelineOwned": 58, "apptsBooked": null, "closeRate": "0%", "ghlId": "Z3WFuyTIWmoZMmzNJrRl" }
+      ]
+    },
+    "weekly": {
+      "label": "This Week",
+      "window": "6 Jul to 9 Jul 2026",
+      "targetPerRep": 35000,
+      "team": { "cash": 0, "dealsWon": 0, "pipelineOwned": 150, "apptsBooked": null, "tiers": [46667, 93333, 140000] },
+      "reps": [
+        { "rank": 1, "name": "Caleb Chase", "first": "Caleb", "cash": 0, "target": 35000, "dealsWon": 0, "pipelineOwned": 92, "apptsBooked": null, "closeRate": "0%", "ghlId": "KyR0lFZOC0l0GQHM6SLv" },
+        { "rank": 2, "name": "Dan Baldasso", "first": "Dan", "cash": 0, "target": 35000, "dealsWon": 0, "pipelineOwned": 58, "apptsBooked": null, "closeRate": "0%", "ghlId": "Z3WFuyTIWmoZMmzNJrRl" }
+      ]
+    },
+    "monthly": {
+      "label": "This Month",
+      "window": "1 Jul to 9 Jul 2026",
+      "targetPerRep": 150000,
+      "team": { "cash": 4997, "dealsWon": 1, "pipelineOwned": 150, "apptsBooked": 79, "unassignedPipeline": 7, "stripeCollected": 4997, "tiers": [200000, 400000, 600000] },
+      "reps": [
+        { "rank": 1, "name": "Caleb Chase", "first": "Caleb", "cash": 4997, "target": 150000, "dealsWon": 1, "pipelineOwned": 92, "apptsBooked": 63, "closeRate": "1.1%", "ghlId": "KyR0lFZOC0l0GQHM6SLv" },
+        { "rank": 2, "name": "Dan Baldasso", "first": "Dan", "cash": 0, "target": 150000, "dealsWon": 0, "pipelineOwned": 58, "apptsBooked": 16, "closeRate": "0%", "ghlId": "Z3WFuyTIWmoZMmzNJrRl" }
+      ]
+    }
+  }
+}

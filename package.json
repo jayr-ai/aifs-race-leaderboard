@@ -1,9 +1,11 @@
 {
-  "name": "aifs-race-leaderboard",
+  "name": "aifs-sales-leaderboard",
   "version": "1.0.0",
   "private": true,
-  "description": "Ai Funding Solutions team tier goal + individual race leaderboard, static HTML, no server needed in production.",
   "scripts": {
-    "preview": "node preview_server.js"
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

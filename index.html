@@ -1,195 +1,1032 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Funding Solutions: The Leaderboard</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>AI Funding Solutions Sales Leaderboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
-:root{
-  --white:#FFFFFF;
-  --paper:#F8FAFC;
-  --navy:#1E293B;
-  --slate-700:#334155;
-  --slate-600:#475569;
-  --slate-500:#64748B;
-  --slate-400:#94A3B8;
-  --slate-300:#CBD5E1;
-  --slate-200:#E2E8F0;
-  --slate-100:#F1F5F9;
-  --slate-50:#F8FAFC;
-  --blue:#60A5FA;
-  --blue-ink:#2F6FD6;
-  --sky:#93C5FD;
-  --sky-2:#BFDBFE;
-  --pale:#DBEAFE;
-  --blue-soft:#EFF6FF;
-  --gold:#B78628;
-  --gold-bright:#D4A73B;
-  --gold-wash:#FBF6E9;
-  --gold-line:rgba(183,134,40,.34);
-  --shadow-sm:0 1px 2px rgba(30,41,59,.04), 0 1px 3px rgba(30,41,59,.05);
-  --shadow-md:0 1px 2px rgba(30,41,59,.04), 0 8px 22px rgba(30,41,59,.07);
-  --shadow-gold:0 4px 12px rgba(183,134,40,.14), 0 20px 48px rgba(183,134,40,.17);
-  --font-display:"Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-*{box-sizing:border-box;}
-body{
-  margin:0; background:var(--paper); color:var(--navy); font-family:var(--font);
-  -webkit-font-smoothing:antialiased;
-}
-.wrap{ max-width:760px; margin:0 auto; padding:40px 20px 60px; }
-.brand{ font-size:13px; font-weight:600; color:var(--blue-ink); text-decoration:none; }
-h1{
-  font-family:var(--font-display); font-weight:300; font-size:36px; letter-spacing:-0.72px;
-  color:var(--navy); margin:6px 0 10px;
-}
-h1 b{ font-weight:700; }
-.subtext{ font-size:13px; color:var(--slate-500); padding-bottom:16px; border-bottom:1px solid var(--slate-200); }
-.subtext .asof{ color:var(--slate-400); }
+  :root{
+    --white:#FFFFFF;
+    --paper:#F8FAFC;
+    /* Softer slate text, no hard black */
+    --navy:#1E293B;
+    --slate-700:#334155;
+    --slate-600:#475569;
+    --slate-500:#64748B;
+    --slate-400:#94A3B8;
+    --slate-300:#CBD5E1;
+    --slate-200:#E2E8F0;
+    --slate-100:#F1F5F9;
+    --slate-50:#F8FAFC;
+    /* Lighter blue only (no neon fills) */
+    --blue:#60A5FA;
+    --blue-ink:#2F6FD6;   /* readable blue for small TEXT only */
+    --sky:#93C5FD;
+    --sky-2:#BFDBFE;
+    --pale:#DBEAFE;
+    --blue-soft:#EFF6FF;
+    /* GOLD - rank 1 only */
+    --gold:#B78628;
+    --gold-bright:#D4A73B;
+    --gold-wash:#FBF6E9;
+    --gold-line:rgba(183,134,40,.34);
+    --shadow-sm:0 1px 2px rgba(30,41,59,.04), 0 1px 3px rgba(30,41,59,.05);
+    --shadow-md:0 1px 2px rgba(30,41,59,.04), 0 8px 22px rgba(30,41,59,.07);
+    --shadow-gold:0 4px 12px rgba(183,134,40,.14), 0 20px 48px rgba(183,134,40,.17);
+    --font:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --display:"Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    font-family:var(--font);
+    color:var(--navy);
+    background:var(--paper);
+    background-image:
+      linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 60%),
+      linear-gradient(var(--slate-200) 1px, transparent 1px),
+      linear-gradient(90deg, var(--slate-200) 1px, transparent 1px);
+    background-size: 100% 100%, 46px 46px, 46px 46px;
+    background-attachment: fixed;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    min-height:100vh;
+    line-height:1.45;
+  }
+  .num{ font-variant-numeric:tabular-nums; }
 
-.tabs{
-  margin-top:16px; display:flex; gap:4px; background:var(--white);
-  border:1px solid var(--slate-200); border-radius:14px; padding:5px; box-shadow:var(--shadow-sm);
-}
-.tab{
-  appearance:none; border:0; cursor:pointer; flex:1 1 0; font-family:inherit; font-size:14px;
-  font-weight:600; color:var(--slate-500); min-height:46px; padding:10px 6px; border-radius:10px;
-  background:transparent; text-align:center; transition:color .18s ease, background .18s ease, box-shadow .18s ease;
-}
-.tab:hover{ color:var(--navy); }
-.tab.active{
-  background:linear-gradient(150deg, var(--sky), var(--blue)); color:var(--white);
-  box-shadow:0 3px 10px rgba(96,165,250,.34);
-}
+  /* Single centered column. A 2-rep board does not need to be wide. */
+  .wrap{
+    position:relative; z-index:1;
+    width:100%;
+    max-width:680px;
+    margin:0 auto;
+    padding:20px 16px 48px;
+  }
 
-.wpanel{ display:none; }
-.wpanel.active{ display:block; }
+  /* ---------- Header + plain wordmark (text only, no mark) ---------- */
+  header{
+    display:flex; flex-direction:column; gap:12px;
+    padding-bottom:16px;
+    border-bottom:1px solid var(--slate-200);
+  }
+  .wordmark{
+    font-family:var(--display); font-weight:600; font-size:13px;
+    letter-spacing:.005em; color:var(--blue-ink);
+  }
+  h1{
+    font-family:var(--display);
+    font-weight:300; font-size:26px; line-height:1.05;
+    letter-spacing:-.02em; color:var(--navy); margin-top:6px;
+  }
+  h1 b{ font-weight:600; }
+  .head-meta{
+    display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 14px;
+    margin-top:2px;
+  }
+  .prov{ font-size:11.5px; color:var(--slate-500); font-weight:500; }
+  .window{ font-family:var(--display); font-size:12.5px; color:var(--slate-700); font-weight:500; letter-spacing:-.01em; }
+  .asof{ font-size:11px; color:var(--slate-400); }
 
-.ladder{
-  margin-top:16px; background:var(--blue-soft); border:1px solid var(--pale); border-radius:16px;
-  padding:20px 22px;
-}
-.ladder-hd{ display:flex; align-items:baseline; justify-content:space-between; }
-.ladder-tag{ font-size:11px; font-weight:700; letter-spacing:.06em; color:var(--blue-ink); text-transform:uppercase; }
-.ladder-level{ font-family:var(--font-display); font-size:20px; font-weight:600; color:var(--navy); margin-left:6px; }
-.ladder-level b{ color:var(--blue-ink); }
-.ladder-collected{ text-align:right; }
-.ladder-collected .amt{ font-family:var(--font-display); font-size:26px; font-weight:700; color:var(--blue-ink); }
-.ladder-collected .lbl{ display:block; font-size:10px; font-weight:700; letter-spacing:.06em; color:var(--slate-400); text-transform:uppercase; }
+  /* ---------- Period tabs (full-width, thumb-tappable) ---------- */
+  .tabs{
+    display:flex; width:100%; gap:5px;
+    margin-top:16px;
+    background:var(--white);
+    border:1px solid var(--slate-200);
+    border-radius:14px; padding:5px;
+    box-shadow:var(--shadow-sm);
+  }
+  .tab{
+    appearance:none; border:0; cursor:pointer; flex:1 1 0;
+    font-family:inherit; font-size:14px; font-weight:600;
+    color:var(--slate-500);
+    min-height:46px; padding:10px 6px; border-radius:10px;
+    background:transparent; text-align:center;
+    transition:color .18s ease, background .18s ease, box-shadow .18s ease;
+  }
+  .tab:hover{ color:var(--navy); }
+  .tab:focus-visible{ outline:2px solid var(--blue); outline-offset:2px; }
+  .tab[aria-selected="true"]{
+    background:linear-gradient(150deg, var(--sky), var(--blue));
+    color:#fff; box-shadow:0 3px 10px rgba(96,165,250,.34);
+  }
 
-.ladder-bar{ display:flex; gap:3px; height:8px; margin:14px 0 12px; border-radius:6px; overflow:hidden; background:var(--slate-200); }
-.ladder-bar span{ flex:1 1 0; background:var(--slate-200); }
-.ladder-bar span.reached{ background:var(--blue); }
-.ladder-bar span.in_reach{ background:var(--sky-2); }
+  /* ---------- Board intro line ---------- */
+  .intro{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:10px; flex-wrap:wrap;
+    margin:20px 2px 12px;
+  }
+  .intro .lbl{
+    font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--slate-600);
+  }
+  .intro .rankby{ font-size:11px; color:var(--slate-400); font-weight:500; }
 
-.levels{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
-.level-box{ border:1px solid var(--slate-200); border-radius:10px; padding:10px 12px; background:var(--white); }
-.level-box.in_reach{ border-color:var(--blue); box-shadow:0 0 0 1px var(--blue) inset; }
-.level-box .ll{ font-size:10px; font-weight:700; letter-spacing:.05em; color:var(--slate-400); text-transform:uppercase; }
-.level-box .lv{ font-family:var(--font-display); font-size:17px; font-weight:700; color:var(--navy); margin:2px 0; }
-.level-box .ls{ font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.03em; }
-.level-box.reached .ls{ color:var(--blue-ink); }
-.level-box.in_reach .ls{ color:var(--blue-ink); }
-.level-box.locked .ls{ color:var(--slate-400); }
-.ladder-foot{ display:flex; justify-content:space-between; margin-top:12px; font-size:12px; color:var(--slate-600); }
-.ladder-foot .pct{ font-weight:700; color:var(--blue-ink); }
+  /* ---------- No-cash notice (honest empty periods) ---------- */
+  .notice{
+    margin:0 0 14px;
+    background:linear-gradient(90deg, var(--blue-soft), rgba(239,246,255,.35));
+    border:1px solid rgba(96,165,250,.32);
+    border-left:3px solid var(--blue);
+    border-radius:12px; padding:12px 15px;
+    font-size:13px; font-weight:500; color:var(--slate-700);
+  }
+  .notice b{ color:var(--navy); font-weight:700; }
 
-.races-hd{ font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--slate-400); text-transform:uppercase; margin:28px 0 6px; }
-.race-title{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:10px; }
-.race-title h2{ font-family:var(--font-display); font-size:15px; font-weight:700; margin:0; color:var(--navy); text-transform:uppercase; letter-spacing:.02em; }
-.race-title .note{ font-size:12px; color:var(--slate-400); }
+  /* ============================================================
+     TEAM TIER LADDER - collective goal, gamified, LIGHTER BLUE.
+     Distinct layer from the individual gold/blue rep races.
+     Single continuous track 0 to top tier, gate markers per tier.
+     ============================================================ */
+  .ladder{
+    position:relative; overflow:hidden;
+    margin:0 0 8px;
+    background:
+      radial-gradient(120% 150% at 100% -20%, rgba(96,165,250,.12), transparent 60%),
+      linear-gradient(160deg, var(--blue-soft) 0%, #fff 68%);
+    border:1px solid rgba(96,165,250,.34);
+    border-radius:18px;
+    box-shadow:var(--shadow-md);
+    padding:16px;
+    opacity:0; transform:translateY(10px);
+    animation:rise .5s cubic-bezier(.2,.7,.3,1) forwards;
+  }
+  .ladder-top{
+    display:flex; align-items:flex-start; justify-content:space-between;
+    gap:10px; flex-wrap:wrap;
+  }
+  .ladder .l-eyebrow{
+    font-size:9.5px; letter-spacing:.13em; text-transform:uppercase;
+    color:var(--blue-ink); font-weight:800;
+  }
+  .ladder .l-level{
+    font-family:var(--display); font-size:19px; font-weight:700;
+    color:var(--navy); letter-spacing:-.02em; line-height:1.05; margin-top:5px;
+    white-space:nowrap;
+  }
+  .ladder .l-level b{ color:var(--blue-ink); }
+  .ladder .l-cash{
+    text-align:right; flex:none;
+  }
+  .ladder .l-cashamt{
+    font-family:var(--display); font-variant-numeric:tabular-nums;
+    font-size:26px; font-weight:700; letter-spacing:-.03em; color:var(--blue-ink); line-height:1;
+  }
+  .ladder .l-cashlbl{
+    font-size:9.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--slate-500); font-weight:700; margin-top:4px;
+  }
 
-.banner{
-  background:var(--blue-soft); border:1px solid var(--pale); border-radius:12px; padding:12px 14px;
-  font-size:13px; color:var(--slate-600); margin-bottom:14px;
-}
+  /* continuous track with gate markers */
+  .l-track-wrap{ margin-top:18px; }
+  .l-track{
+    position:relative; height:14px; border-radius:9px;
+    background:var(--slate-100); border:1px solid var(--slate-200);
+    overflow:hidden;
+  }
+  .l-fill{
+    display:block; height:100%; width:0; border-radius:9px;
+    background:linear-gradient(90deg, var(--sky), var(--blue));
+    transition:width 1.3s cubic-bezier(.2,.7,.3,1);
+  }
+  /* gate markers sit on the rail (thin lines, not dots) */
+  .l-gate{
+    position:absolute; top:-3px; bottom:-3px; width:2px;
+    background:var(--slate-300); border-radius:2px; transform:translateX(-1px);
+  }
+  .l-gate.passed{ background:var(--blue); }
 
-.rcard{ border:1px solid var(--slate-200); border-radius:18px; padding:20px 22px; background:var(--white); margin-bottom:14px; }
-.rcard.leader{
-  border:1px solid var(--gold-line); box-shadow:var(--shadow-gold);
-  background:
-    radial-gradient(120% 150% at 100% -20%, rgba(212,167,59,.14), rgba(0,0,0,0) 62%),
-    linear-gradient(155deg, var(--gold-wash) 0%, var(--white) 70%);
-}
-.rcard-hd{ display:flex; align-items:center; gap:12px; }
-.rrank{ font-family:var(--font-display); font-size:20px; font-weight:700; color:var(--slate-400); width:20px; }
-.rcard.leader .rrank{ color:var(--gold); }
-.avatar{
-  width:40px; height:40px; border-radius:999px; display:flex; align-items:center; justify-content:center;
-  font-family:var(--font-display); font-weight:700; font-size:14px; color:var(--slate-500);
-  background:var(--slate-100); border:1px solid var(--slate-200); flex:none;
-}
-.rcard.leader .avatar{ color:var(--gold); background:var(--white); border-color:var(--gold-line); }
-.rname{ font-family:var(--font-display); font-weight:700; font-size:16px; color:var(--navy); }
-.rname .lead-tag{
-  font-family:var(--font); font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--gold); margin-left:6px;
-}
-.chips{ margin-top:4px; display:flex; gap:6px; flex-wrap:wrap; }
-.chip{
-  font-size:10.5px; font-weight:600; color:var(--gold); background:var(--gold-wash);
-  border:1px solid var(--gold-line); border-radius:999px; padding:2px 9px;
-}
-.rcard:not(.leader) .chip{ color:var(--blue-ink); background:var(--blue-soft); border-color:var(--pale); }
+  /* tier legend row under the track */
+  .l-tiers{
+    display:flex; margin-top:12px; gap:8px;
+  }
+  .l-tier{
+    flex:1 1 0; min-width:0; overflow:hidden;
+    display:flex; flex-direction:column; gap:3px;
+    padding:9px 8px; border-radius:12px;
+    background:var(--white); border:1px solid var(--slate-200);
+  }
+  .l-tier.passed{ border-color:rgba(96,165,250,.5); background:var(--blue-soft); }
+  .l-tier.next{ border-color:var(--blue); box-shadow:0 0 0 2px rgba(96,165,250,.18); }
+  .l-tier .tt{
+    display:flex; align-items:center; gap:5px;
+    font-size:9px; font-weight:800; letter-spacing:.02em; text-transform:uppercase;
+    color:var(--slate-500); white-space:nowrap;
+  }
+  .l-tier.passed .tt, .l-tier.next .tt{ color:var(--blue-ink); }
+  .l-tier .tt .tick{ display:inline-flex; width:12px; height:12px; flex:none; }
+  .l-tier .tt .tick svg{ width:12px; height:12px; color:var(--blue); }
+  .l-tier .tv{
+    font-family:var(--display); font-variant-numeric:tabular-nums;
+    font-size:14px; font-weight:700; color:var(--navy); letter-spacing:-.03em; line-height:1;
+    white-space:nowrap;
+  }
+  .l-tier .ts{ font-size:8.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; color:var(--slate-400); white-space:nowrap; }
+  .l-tier.passed .ts{ color:var(--blue-ink); }
+  .l-tier.next .ts{ color:var(--blue-ink); }
 
-.rprogress{ margin-top:16px; }
-.rp-row{ display:flex; align-items:baseline; justify-content:space-between; }
-.rp-amt{ font-family:var(--font-display); font-size:24px; font-weight:700; color:var(--slate-400); }
-.rp-amt.ok{ color:var(--gold); }
-.rcard:not(.leader) .rp-amt.ok{ color:var(--blue-ink); }
-.rp-goal{ font-size:13px; color:var(--slate-400); font-weight:500; }
-.rp-pct{ text-align:right; font-size:12px; font-weight:700; color:var(--slate-400); }
-.rp-pct .n{ font-size:15px; }
-.rp-bar{ height:8px; border-radius:6px; background:var(--slate-200); margin:8px 0; overflow:hidden; }
-.rp-bar > div{ height:100%; background:var(--gold); border-radius:6px; }
-.rcard:not(.leader) .rp-bar > div{ background:var(--blue); }
-.rp-foot{ display:flex; justify-content:space-between; font-size:12px; }
-.rp-foot .togo{ color:var(--slate-600); font-weight:600; }
-.rp-foot .flavor{ color:var(--gold); font-weight:600; }
-.rcard:not(.leader) .rp-foot .flavor{ color:var(--blue-ink); }
+  .l-unlock{
+    margin-top:13px;
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:6px 12px; flex-wrap:nowrap;
+    font-size:12.5px; color:var(--slate-600); font-weight:500;
+  }
+  .l-unlock > span{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; }
+  .l-unlock b{ color:var(--navy); font-weight:800; font-variant-numeric:tabular-nums; }
+  .l-unlock .l-next{ font-size:12px; font-weight:700; color:var(--blue-ink); flex:none; }
 
-.rstats{ display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:16px; padding-top:14px; border-top:1px solid var(--slate-200); }
-.rstat{ text-align:center; }
-.rstat .sv{ font-family:var(--font-display); font-size:17px; font-weight:700; color:var(--navy); }
-.rstat .sl{ font-size:9.5px; font-weight:700; letter-spacing:.05em; color:var(--slate-400); text-transform:uppercase; margin-top:2px; }
+  /* layer separator label between team + individual */
+  .layer-sep{
+    font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--slate-600); margin:20px 2px 12px;
+  }
 
-.rline-b{ text-align:right; margin-top:12px; font-size:12px; font-weight:600; color:var(--gold); }
-.rcard:not(.leader) .rline-b{ color:var(--blue-ink); }
+  /* ============================================================
+     REP CARD - the whole board is a stack of these.
+     Every element inside stacks with flex, so nothing can drift
+     into a neighbouring column. Same structure at every width.
+     ============================================================ */
+  .lanes{ display:flex; flex-direction:column; gap:14px; }
 
-.totals{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:28px; }
-.tile{ background:var(--white); border:1px solid var(--slate-200); border-radius:12px; padding:14px; text-align:center; }
-.tile.hi{ border-color:var(--pale); background:var(--blue-soft); }
-.tile .tv{ font-family:var(--font-display); font-size:19px; font-weight:700; color:var(--navy); }
-.tile.hi .tv{ color:var(--blue-ink); }
-.tile .tl{ font-size:10px; font-weight:700; letter-spacing:.04em; color:var(--slate-400); text-transform:uppercase; margin-top:3px; }
+  .card{
+    position:relative; overflow:hidden;
+    background:var(--white);
+    border:1px solid var(--slate-200);
+    border-radius:18px;
+    box-shadow:var(--shadow-md);
+    padding:16px;
+    display:flex; flex-direction:column; gap:14px;
+    opacity:0; transform:translateY(10px);
+    animation:rise .5s cubic-bezier(.2,.7,.3,1) forwards;
+  }
+  @keyframes rise{ to{ opacity:1; transform:none; } }
 
-footer{ margin-top:36px; padding-top:16px; border-top:1px solid var(--slate-200); font-size:12px; color:var(--slate-400); }
-@media (max-width:520px){
-  .levels, .rstats{ grid-template-columns:repeat(2,1fr); }
-  .totals{ grid-template-columns:repeat(2,1fr); }
-}
+  /* Champion (rank 1) = GOLD */
+  .card.champ{
+    border-color:var(--gold-line);
+    background:
+      radial-gradient(120% 150% at 100% -20%, rgba(212,167,59,.14), transparent 62%),
+      linear-gradient(155deg, var(--gold-wash) 0%, #fff 70%);
+    box-shadow:var(--shadow-gold);
+  }
+
+  /* --- Row 1: rank + avatar + name + tier/badges --- */
+  .id{ display:flex; align-items:center; gap:12px; min-width:0; }
+  .rankbadge{
+    flex:none;
+    width:30px; text-align:center;
+    font-family:var(--display); font-weight:800; font-size:17px;
+    color:var(--slate-400); font-variant-numeric:tabular-nums;
+    line-height:1;
+  }
+  .card.champ .rankbadge{ color:var(--gold); }
+
+  .ava{
+    flex:none;
+    width:52px; height:52px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--display); font-size:18px; font-weight:600; color:var(--slate-600);
+    background-color:var(--slate-100); border:1px solid var(--slate-200);
+    overflow:hidden; background-size:cover; background-position:center;
+  }
+  .card.champ .ava{
+    color:var(--gold); background-color:#fff; border:2px solid var(--gold-line);
+    box-shadow:0 5px 14px rgba(183,134,40,.16);
+  }
+
+  .idbody{ display:flex; flex-direction:column; gap:5px; min-width:0; flex:1 1 auto; }
+  .nameline{ display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; min-width:0; }
+  .name{
+    font-family:var(--display); font-size:18px; font-weight:600; color:var(--navy);
+    letter-spacing:-.02em; line-height:1.05;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:100%;
+  }
+  .card.champ .name{ color:var(--gold); }
+  .crown{
+    flex:none;
+    display:inline-flex; align-items:center; gap:4px;
+    font-size:8.5px; letter-spacing:.13em; text-transform:uppercase;
+    color:var(--gold); font-weight:800;
+  }
+  .crown svg{ width:12px; height:12px; }
+
+  .chips{ display:flex; flex-wrap:wrap; gap:6px; }
+  .badge{
+    display:inline-flex; align-items:center; gap:5px;
+    font-size:9.5px; font-weight:700; color:var(--blue-ink);
+    padding:3px 9px; border-radius:999px;
+    background:#fff; border:1px solid rgba(96,165,250,.32);
+    animation:badgein .4s ease both;
+  }
+  @keyframes badgein{ from{ opacity:0; transform:scale(.82); } to{ opacity:1; transform:none; } }
+  .card.champ .badge{ color:var(--gold); border-color:var(--gold-line); }
+  .badge svg{ width:11px; height:11px; }
+
+  /* --- Row 2: the HERO race toward $150,000 --- */
+  .race{
+    display:flex; flex-direction:column; gap:9px;
+    padding-top:14px; border-top:1px solid var(--slate-100);
+  }
+  .card.champ .race{ border-top-color:var(--gold-line); }
+  .race-top{
+    display:flex; align-items:flex-end; justify-content:space-between;
+    gap:10px; flex-wrap:wrap;
+  }
+  .cash{
+    display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; min-width:0;
+  }
+  .cash .amt{
+    font-family:var(--display); font-variant-numeric:tabular-nums;
+    font-size:28px; font-weight:500; letter-spacing:-.025em;
+    color:var(--navy); line-height:1;
+  }
+  .card.champ .cash .amt{ color:var(--gold); font-weight:700; }
+  .card.zero .cash .amt{ color:var(--slate-300); font-weight:400; }
+  .cash .of{
+    font-family:var(--display); font-variant-numeric:tabular-nums;
+    font-size:13px; font-weight:500; color:var(--slate-500);
+    letter-spacing:-.01em; white-space:nowrap;
+  }
+  .pct{
+    flex:none; text-align:right;
+    font-family:var(--display); font-variant-numeric:tabular-nums;
+    font-weight:800; font-size:19px; letter-spacing:-.02em;
+    color:var(--blue-ink); line-height:1;
+  }
+  .card.champ .pct{ color:var(--gold); }
+  .card.zero .pct{ color:var(--slate-400); }
+  .pct span{ display:block; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--slate-400); margin-top:3px; }
+
+  .bar{
+    height:12px; border-radius:8px;
+    background:var(--slate-100); border:1px solid var(--slate-200);
+    overflow:hidden; position:relative;
+  }
+  .bar > i{
+    display:block; height:100%; width:0; border-radius:8px;
+    background:linear-gradient(90deg, var(--sky), var(--blue));
+    transition:width 1.2s cubic-bezier(.2,.7,.3,1);
+  }
+  .card.champ .bar > i{
+    background:linear-gradient(90deg, var(--gold-bright), var(--gold));
+  }
+  .race-foot{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:6px 12px; flex-wrap:nowrap;
+    font-size:12.5px; color:var(--slate-600); font-weight:500;
+  }
+  .race-foot > span{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; }
+  .race-foot b{ color:var(--navy); font-weight:700; font-variant-numeric:tabular-nums; }
+  .race-foot .push{ font-size:12px; font-weight:700; color:var(--blue-ink); flex:none; }
+  .card.champ .race-foot .push{ color:var(--gold); }
+
+  /* --- Row 3: compact stat line, single tidy row (never wraps) --- */
+  .stats{
+    display:flex; flex-wrap:nowrap; gap:6px;
+    padding-top:13px; border-top:1px solid var(--slate-100);
+  }
+  .card.champ .stats{ border-top-color:var(--gold-line); }
+  .stat{
+    flex:1 1 0; min-width:0;
+    display:flex; flex-direction:column; gap:4px;
+    padding:8px 5px; border-radius:11px;
+    background:var(--slate-50); border:1px solid var(--slate-100);
+    overflow:hidden; text-align:center;
+  }
+  .card.champ .stat{ background:rgba(255,255,255,.6); border-color:var(--gold-line); }
+  .stat .k{
+    font-size:8px; font-weight:700; letter-spacing:0; text-transform:uppercase; color:var(--slate-500);
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .stat .v{
+    font-family:var(--display); font-variant-numeric:tabular-nums;
+    font-size:17px; font-weight:600; color:var(--navy); letter-spacing:-.02em; line-height:1;
+    white-space:nowrap;
+  }
+  .stat .v.muted{ color:var(--slate-400); font-weight:500; }
+
+  /* --- Row 4: chase gap to rep above --- */
+  .foot{
+    display:flex; align-items:center; justify-content:flex-end;
+    padding-top:13px; border-top:1px solid var(--slate-100);
+  }
+  .card.champ .foot{ border-top-color:var(--gold-line); }
+  .chase{
+    font-size:12.5px; font-weight:600; color:var(--slate-600);
+    text-align:right;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:100%;
+  }
+  .chase b{ color:var(--navy); font-weight:800; font-variant-numeric:tabular-nums; }
+  .chase.pace{ color:var(--gold); font-weight:700; }
+  .chase.pace b{ color:var(--gold); }
+
+  /* ---------- Team summary (small, secondary) ---------- */
+  .team{
+    display:grid; grid-template-columns:repeat(2,1fr);
+    gap:10px; margin-top:20px;
+  }
+  .tcard{
+    background:var(--white); border:1px solid var(--slate-200);
+    border-radius:14px; padding:12px 13px;
+    box-shadow:var(--shadow-sm);
+    display:flex; flex-direction:column; gap:5px;
+  }
+  .tcard.cash{ border-color:rgba(96,165,250,.4); background:linear-gradient(180deg,#fff,var(--blue-soft)); }
+  .tcard .k{ font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:var(--slate-500); font-weight:700; }
+  .tcard .v{
+    font-family:var(--display); font-size:22px; font-weight:600;
+    letter-spacing:-.03em; color:var(--navy); font-variant-numeric:tabular-nums; line-height:1;
+  }
+  .tcard.cash .v{ color:var(--blue-ink); }
+  .tcard .v.muted{ color:var(--slate-400); font-weight:500; }
+  .tcard .f{ font-size:10.5px; color:var(--slate-400); }
+
+  /* ---------- Footer ---------- */
+  footer{ margin-top:24px; padding-top:16px; border-top:1px solid var(--slate-200); display:flex; flex-direction:column; gap:5px; }
+  footer .f{ font-size:11px; color:var(--slate-400); font-weight:500; }
+
+  /* board swap transition */
+  #board{ transition:opacity .16s ease, transform .16s ease; }
+  #board.swapping{ opacity:0; transform:translateY(6px); }
+
+  /* ============================================================
+     SCALE UP - the SAME card, only larger. No layout change.
+     ============================================================ */
+  @media (min-width:560px){
+    .wrap{ padding:30px 24px 60px; }
+    h1{ font-size:32px; }
+    .card{ padding:20px 22px; gap:16px; }
+    .ava{ width:58px; height:58px; font-size:20px; }
+    .name{ font-size:20px; }
+    .cash .amt{ font-size:30px; }
+    .cash .of{ font-size:14px; }
+    .pct{ font-size:22px; }
+    .stat .v{ font-size:19px; }
+    .team{ grid-template-columns:repeat(4,1fr); }
+  }
+  @media (min-width:900px){
+    .wrap{ max-width:720px; padding:38px 24px 68px; }
+    h1{ font-size:36px; }
+    .cash .amt{ font-size:32px; }
+  }
+
+  @media (min-width:560px){
+    .ladder{ padding:20px 22px; }
+    .ladder .l-level{ font-size:22px; }
+    .ladder .l-cashamt{ font-size:30px; }
+    .l-tier .tv{ font-size:17px; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .card, .ladder, .badge{ animation:none !important; opacity:1 !important; transform:none !important; }
+    .bar > i, .l-fill{ transition:none !important; }
+    #board{ transition:none !important; }
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <a class="brand" href="#">AI Funding Solutions</a>
-  <h1>The <b>Leaderboard</b></h1>
+  <header>
+    <div>
+      <span class="wordmark">AI Funding Solutions</span>
+      <h1>The <b>Leaderboard</b></h1>
+    </div>
+    <div class="head-meta">
+      <span class="prov" id="prov">GoHighLevel + Stripe</span>
+      <span class="window" id="window">&nbsp;</span>
+      <span class="asof" id="asof">&nbsp;</span>
+    </div>
+  </header>
 
-  <div class="tabs" role="tablist" aria-label="Leaderboard period">
-    <!--TABS_START--><button class="tab" role="tab" data-win="day" onclick="raceSwitchWin('day')">Daily</button><button class="tab" role="tab" data-win="week" onclick="raceSwitchWin('week')">Weekly</button><button class="tab active" role="tab" data-win="month" onclick="raceSwitchWin('month')">Monthly</button><script>function raceSwitchWin(k){document.querySelectorAll(".tab").forEach(function(b){b.classList.toggle("active", b.dataset.win===k);});document.querySelectorAll(".wpanel").forEach(function(p){p.classList.toggle("active", p.dataset.win===k);});}</script><!--TABS_END-->
+  <div class="tabs" id="tabs" role="tablist" aria-label="Leaderboard period">
+    <button class="tab" role="tab" id="tab-daily"   aria-controls="board" data-period="daily">Daily</button>
+    <button class="tab" role="tab" id="tab-weekly"  aria-controls="board" data-period="weekly">Weekly</button>
+    <button class="tab" role="tab" id="tab-monthly" aria-controls="board" data-period="monthly">Monthly</button>
   </div>
 
-  <!--PANELS_START--><div class="wpanel" data-win="day" role="tabpanel"><div class="subtext">GoHighLevel opportunities + Stripe payments &middot; 9 Jul 2026 &middot; <span class="asof">as of 9 Jul 2026</span></div><div class="ladder"><div class="ladder-hd"><div><span class="ladder-tag">Team goal</span><span class="ladder-level">Level <b>0</b> of 3</span></div><div class="ladder-collected"><span class="amt">$0</span><span class="lbl">Collected</span></div></div><div class="ladder-bar"><span class="in_reach"></span><span class=""></span><span class=""></span></div><div class="levels"><div class="level-box in_reach"><div class="ll">Level 1</div><div class="lv">$6,667</div><div class="ls">In reach</div></div><div class="level-box locked"><div class="ll">Level 2</div><div class="lv">$13,333</div><div class="ls">Locked</div></div><div class="level-box locked"><div class="ll">Level 3</div><div class="lv">$20,000</div><div class="ls">Locked</div></div></div><div class="ladder-foot"><span>$6,667 to reach $6,667</span><span><span class="pct">0%</span> to Level 1</span></div></div><div class="races-hd">Individual races</div><div class="race-title"><h2>Race to $5,000</h2><span class="note">Ranked by open pipeline</span></div><div class="banner">No cash collected today. First on the board wins. Ranked by open pipeline until then.</div><article class="rcard leader"><div class="rcard-hd"><span class="rrank">1</span><span class="avatar">CC</span><div><span class="rname">Caleb Chase <span class="lead-tag">Leading</span></span><div class="chips"><span class="chip">Pipeline King</span><span class="chip">Top Closer</span><span class="chip">First Deal</span></div></div></div><div class="rprogress"><div class="rp-row"><span class="rp-amt ">$0</span><span class="rp-goal">of $5,000 goal</span><span class="rp-pct"><span class="n">0%</span><br>to goal</span></div><div class="rp-bar"><div style="width:0%"></div></div><div class="rp-foot"><span class="togo">$5,000 to go</span><span></span></div></div><div class="rstats"><div class="rstat"><div class="sv">0</div><div class="sl">Deals won</div></div><div class="rstat"><div class="sv">89</div><div class="sl">Open deals</div></div><div class="rstat"><div class="sv">8</div><div class="sl">Meetings</div></div><div class="rstat"><div class="sv">0.0%</div><div class="sl">Close rate</div></div></div><div class="rline-b">Setting the pace</div></article><article class="rcard"><div class="rcard-hd"><span class="rrank">2</span><span class="avatar">DB</span><div><span class="rname">Dan Baldasso</span></div></div><div class="rprogress"><div class="rp-row"><span class="rp-amt ">$0</span><span class="rp-goal">of $5,000 goal</span><span class="rp-pct"><span class="n">0%</span><br>to goal</span></div><div class="rp-bar"><div style="width:0%"></div></div><div class="rp-foot"><span class="togo">$5,000 to go</span><span></span></div></div><div class="rstats"><div class="rstat"><div class="sv">0</div><div class="sl">Deals won</div></div><div class="rstat"><div class="sv">59</div><div class="sl">Open deals</div></div><div class="rstat"><div class="sv">2</div><div class="sl">Meetings</div></div><div class="rstat"><div class="sv">0.0%</div><div class="sl">Close rate</div></div></div><div class="rline-b">Tied with Caleb Chase</div></article><div class="totals"><div class="tile hi"><div class="tv">$0</div><div class="tl">Cash collected</div></div><div class="tile"><div class="tv">0</div><div class="tl">Deals won</div></div><div class="tile"><div class="tv">148</div><div class="tl">Open deals</div></div><div class="tile"><div class="tv">10</div><div class="tl">Meetings booked</div></div></div></div>
-<div class="wpanel" data-win="week" role="tabpanel"><div class="subtext">GoHighLevel opportunities + Stripe payments &middot; 3 Jul to 9 Jul 2026 &middot; <span class="asof">as of 9 Jul 2026</span></div><div class="ladder"><div class="ladder-hd"><div><span class="ladder-tag">Team goal</span><span class="ladder-level">Level <b>0</b> of 3</span></div><div class="ladder-collected"><span class="amt">$0</span><span class="lbl">Collected</span></div></div><div class="ladder-bar"><span class="in_reach"></span><span class=""></span><span class=""></span></div><div class="levels"><div class="level-box in_reach"><div class="ll">Level 1</div><div class="lv">$46,667</div><div class="ls">In reach</div></div><div class="level-box locked"><div class="ll">Level 2</div><div class="lv">$93,333</div><div class="ls">Locked</div></div><div class="level-box locked"><div class="ll">Level 3</div><div class="lv">$140,000</div><div class="ls">Locked</div></div></div><div class="ladder-foot"><span>$46,667 to reach $46,667</span><span><span class="pct">0%</span> to Level 1</span></div></div><div class="races-hd">Individual races</div><div class="race-title"><h2>Race to $35,000</h2><span class="note">Ranked by open pipeline</span></div><div class="banner">No cash collected this week. First on the board wins. Ranked by open pipeline until then.</div><article class="rcard leader"><div class="rcard-hd"><span class="rrank">1</span><span class="avatar">CC</span><div><span class="rname">Caleb Chase <span class="lead-tag">Leading</span></span><div class="chips"><span class="chip">Pipeline King</span><span class="chip">Top Closer</span><span class="chip">First Deal</span></div></div></div><div class="rprogress"><div class="rp-row"><span class="rp-amt ">$0</span><span class="rp-goal">of $35,000 goal</span><span class="rp-pct"><span class="n">0%</span><br>to goal</span></div><div class="rp-bar"><div style="width:0%"></div></div><div class="rp-foot"><span class="togo">$35,000 to go</span><span></span></div></div><div class="rstats"><div class="rstat"><div class="sv">0</div><div class="sl">Deals won</div></div><div class="rstat"><div class="sv">89</div><div class="sl">Open deals</div></div><div class="rstat"><div class="sv">52</div><div class="sl">Meetings</div></div><div class="rstat"><div class="sv">0.0%</div><div class="sl">Close rate</div></div></div><div class="rline-b">Setting the pace</div></article><article class="rcard"><div class="rcard-hd"><span class="rrank">2</span><span class="avatar">DB</span><div><span class="rname">Dan Baldasso</span></div></div><div class="rprogress"><div class="rp-row"><span class="rp-amt ">$0</span><span class="rp-goal">of $35,000 goal</span><span class="rp-pct"><span class="n">0%</span><br>to goal</span></div><div class="rp-bar"><div style="width:0%"></div></div><div class="rp-foot"><span class="togo">$35,000 to go</span><span></span></div></div><div class="rstats"><div class="rstat"><div class="sv">0</div><div class="sl">Deals won</div></div><div class="rstat"><div class="sv">59</div><div class="sl">Open deals</div></div><div class="rstat"><div class="sv">10</div><div class="sl">Meetings</div></div><div class="rstat"><div class="sv">0.0%</div><div class="sl">Close rate</div></div></div><div class="rline-b">Tied with Caleb Chase</div></article><div class="totals"><div class="tile hi"><div class="tv">$0</div><div class="tl">Cash collected</div></div><div class="tile"><div class="tv">0</div><div class="tl">Deals won</div></div><div class="tile"><div class="tv">148</div><div class="tl">Open deals</div></div><div class="tile"><div class="tv">62</div><div class="tl">Meetings booked</div></div></div></div>
-<div class="wpanel active" data-win="month" role="tabpanel"><div class="subtext">GoHighLevel opportunities + Stripe payments &middot; 15 Jun to 9 Jul 2026 &middot; <span class="asof">as of 9 Jul 2026</span></div><div class="ladder"><div class="ladder-hd"><div><span class="ladder-tag">Team goal</span><span class="ladder-level">Level <b>0</b> of 3</span></div><div class="ladder-collected"><span class="amt">$4,997</span><span class="lbl">Collected</span></div></div><div class="ladder-bar"><span class="in_reach"></span><span class=""></span><span class=""></span></div><div class="levels"><div class="level-box in_reach"><div class="ll">Level 1</div><div class="lv">$200,000</div><div class="ls">In reach</div></div><div class="level-box locked"><div class="ll">Level 2</div><div class="lv">$400,000</div><div class="ls">Locked</div></div><div class="level-box locked"><div class="ll">Level 3</div><div class="lv">$600,000</div><div class="ls">Locked</div></div></div><div class="ladder-foot"><span>$195,003 to reach $200,000</span><span><span class="pct">2%</span> to Level 1</span></div></div><div class="races-hd">Individual races</div><div class="race-title"><h2>Race to $150,000</h2><span class="note">Ranked by cash, then deals won, then pipeline owned</span></div><article class="rcard leader"><div class="rcard-hd"><span class="rrank">1</span><span class="avatar">CC</span><div><span class="rname">Caleb Chase <span class="lead-tag">Leading</span></span><div class="chips"><span class="chip">Pipeline King</span><span class="chip">Top Closer</span><span class="chip">First Deal</span></div></div></div><div class="rprogress"><div class="rp-row"><span class="rp-amt ok">$4,997</span><span class="rp-goal">of $150,000 goal</span><span class="rp-pct"><span class="n">3%</span><br>to goal</span></div><div class="rp-bar"><div style="width:3%"></div></div><div class="rp-foot"><span class="togo">$145,003 to go</span><span class="flavor">Every deal counts</span></div></div><div class="rstats"><div class="rstat"><div class="sv">1</div><div class="sl">Deals won</div></div><div class="rstat"><div class="sv">89</div><div class="sl">Open deals</div></div><div class="rstat"><div class="sv">53</div><div class="sl">Meetings</div></div><div class="rstat"><div class="sv">1.1%</div><div class="sl">Close rate</div></div></div><div class="rline-b">Setting the pace</div></article><article class="rcard"><div class="rcard-hd"><span class="rrank">2</span><span class="avatar">DB</span><div><span class="rname">Dan Baldasso</span></div></div><div class="rprogress"><div class="rp-row"><span class="rp-amt ">$0</span><span class="rp-goal">of $150,000 goal</span><span class="rp-pct"><span class="n">0%</span><br>to goal</span></div><div class="rp-bar"><div style="width:0%"></div></div><div class="rp-foot"><span class="togo">$150,000 to go</span><span class="flavor">First on the board wins</span></div></div><div class="rstats"><div class="rstat"><div class="sv">0</div><div class="sl">Deals won</div></div><div class="rstat"><div class="sv">59</div><div class="sl">Open deals</div></div><div class="rstat"><div class="sv">17</div><div class="sl">Meetings</div></div><div class="rstat"><div class="sv">0.0%</div><div class="sl">Close rate</div></div></div><div class="rline-b">$4,997 to pass Caleb Chase</div></article><div class="totals"><div class="tile hi"><div class="tv">$4,997</div><div class="tl">Cash collected</div></div><div class="tile"><div class="tv">1</div><div class="tl">Deals won</div></div><div class="tile"><div class="tv">148</div><div class="tl">Open deals</div></div><div class="tile"><div class="tv">70</div><div class="tl">Meetings booked</div></div></div></div><!--PANELS_END-->
+  <div id="board" role="tabpanel" aria-labelledby="tab-monthly">
+    <section id="ladder-slot" aria-label="Team tier goal"></section>
+
+    <div class="layer-sep" id="layer-sep">Individual races</div>
+    <div class="intro">
+      <span class="lbl" id="intro-lbl">Race to $150,000</span>
+      <span class="rankby" id="rankby">&nbsp;</span>
+    </div>
+    <div id="notice-slot"></div>
+    <section class="lanes" id="lanes" aria-label="Rep standings"></section>
+    <section class="team" id="team" aria-label="Team totals"></section>
+  </div>
 
   <footer>
-    Refreshed once a day &middot; GoHighLevel opportunities plus Stripe payments
+    <span class="f">Refreshed 8am, 12pm and 5pm ET</span>
+    <span class="f" id="footprov">GoHighLevel opportunities plus Stripe payments</span>
   </footer>
 </div>
+
+<script>
+// Inlined fallback mirrors leaderboard.json exactly (new schema: cashTargetPerRep + per-period targetPerRep + per-rep target).
+var FALLBACK = {
+  "asOf": "2026-07-09",
+  "source": "GoHighLevel opportunities + Stripe payments (live)",
+  "rankBy": "cash, then deals won, then pipeline owned",
+  "cashTargetPerRep": 150000,
+  "teamTiers": [200000, 400000, 600000],
+  "reconciliation": { "ghlCash": 4997, "stripeCash": 4997, "deltaCents": 0, "status": "reconciled", "checkedAt": "2026-07-09T18:50:00+10:00" },
+  "roster": ["Caleb Chase", "Dan Baldasso"],
+  "periods": {
+    "daily": {
+      "label": "Today",
+      "window": "9 Jul 2026",
+      "targetPerRep": 5000,
+      "team": { "cash": 0, "dealsWon": 0, "pipelineOwned": 150, "apptsBooked": null, "tiers": [6667, 13333, 20000] },
+      "reps": [
+        { "rank": 1, "name": "Caleb Chase", "first": "Caleb", "cash": 0, "target": 5000, "dealsWon": 0, "pipelineOwned": 92, "apptsBooked": null, "closeRate": "0%", "ghlId": "KyR0lFZOC0l0GQHM6SLv" },
+        { "rank": 2, "name": "Dan Baldasso", "first": "Dan", "cash": 0, "target": 5000, "dealsWon": 0, "pipelineOwned": 58, "apptsBooked": null, "closeRate": "0%", "ghlId": "Z3WFuyTIWmoZMmzNJrRl" }
+      ]
+    },
+    "weekly": {
+      "label": "This Week",
+      "window": "6 Jul to 9 Jul 2026",
+      "targetPerRep": 35000,
+      "team": { "cash": 0, "dealsWon": 0, "pipelineOwned": 150, "apptsBooked": null, "tiers": [46667, 93333, 140000] },
+      "reps": [
+        { "rank": 1, "name": "Caleb Chase", "first": "Caleb", "cash": 0, "target": 35000, "dealsWon": 0, "pipelineOwned": 92, "apptsBooked": null, "closeRate": "0%", "ghlId": "KyR0lFZOC0l0GQHM6SLv" },
+        { "rank": 2, "name": "Dan Baldasso", "first": "Dan", "cash": 0, "target": 35000, "dealsWon": 0, "pipelineOwned": 58, "apptsBooked": null, "closeRate": "0%", "ghlId": "Z3WFuyTIWmoZMmzNJrRl" }
+      ]
+    },
+    "monthly": {
+      "label": "This Month",
+      "window": "1 Jul to 9 Jul 2026",
+      "targetPerRep": 150000,
+      "team": { "cash": 4997, "dealsWon": 1, "pipelineOwned": 150, "apptsBooked": 79, "unassignedPipeline": 7, "stripeCollected": 4997, "tiers": [200000, 400000, 600000] },
+      "reps": [
+        { "rank": 1, "name": "Caleb Chase", "first": "Caleb", "cash": 4997, "target": 150000, "dealsWon": 1, "pipelineOwned": 92, "apptsBooked": 63, "closeRate": "1.1%", "ghlId": "KyR0lFZOC0l0GQHM6SLv" },
+        { "rank": 2, "name": "Dan Baldasso", "first": "Dan", "cash": 0, "target": 150000, "dealsWon": 0, "pipelineOwned": 58, "apptsBooked": 16, "closeRate": "0%", "ghlId": "Z3WFuyTIWmoZMmzNJrRl" }
+      ]
+    }
+  }
+};
+
+var NULLDASH = '-'; // plain hyphen for null appts, never em or en dash
+var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var CURRENT = FALLBACK;
+
+function fmtUSD(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+function fmtNum(n){ return Math.round(n).toLocaleString('en-US'); }
+function apptText(v){ return (v == null) ? NULLDASH : fmtNum(v); }
+function initials(name){
+  var p = String(name).trim().split(/\s+/);
+  return (((p[0]||'')[0] || '') + ((p[p.length-1]||'')[0] || '')).toUpperCase();
+}
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function avatarStyle(r){ return r && r.photo ? ' style="background-image:url(\''+esc(r.photo)+'\')"' : ''; }
+function avatarInner(r){ return (r && r.photo) ? '' : initials(r.name); }
+
+// Badges from TRUE facts only, recomputed per period.
+function computeBadges(reps){
+  var out = {}; reps.forEach(function(r){ out[r.name] = []; });
+  function leaderBy(key){
+    var best = -1, who = null, tie = false;
+    reps.forEach(function(r){
+      var v = r[key] || 0;
+      if (v > best){ best = v; who = r; tie = false; }
+      else if (v === best){ tie = true; }
+    });
+    if (who && best > 0 && !tie) return who;
+    return null;
+  }
+  var topCash = leaderBy('cash'); if (topCash) out[topCash.name].push('top-closer');
+  var pipeKing = leaderBy('pipelineOwned'); if (pipeKing) out[pipeKing.name].push('pipeline-king');
+  var fastStart = leaderBy('apptsBooked'); if (fastStart) out[fastStart.name].push('fast-starter');
+  var winners = reps.filter(function(r){ return (r.dealsWon || 0) > 0; });
+  if (winners.length === 1) out[winners[0].name].push('first-blood');
+  return out;
+}
+var BADGE_META = {
+  'top-closer':   { label:'Top Closer',    icon:'M12 2l2.6 6.3L21 9l-5 4.2L17.5 20 12 16.3 6.5 20 8 13.2 3 9l6.4-.7z' },
+  'pipeline-king':{ label:'Pipeline King', icon:'M12 2l3 5 5 .7-3.6 3.5.9 5.3L12 19l-5.2 2.5.9-5.3L4 8.7 9 8z' },
+  'fast-starter': { label:'Fast Starter',  icon:'M13 2L4.5 13.5H11l-1 8.5L19.5 10H13z' },
+  'first-blood':  { label:'First Deal',    icon:'M12 2C8 8 6 11 6 14a6 6 0 0012 0c0-3-2-6-6-12z' }
+};
+function badgeHTML(keys){
+  if (!keys || !keys.length) return '';
+  return keys.map(function(k){
+    var m = BADGE_META[k]; if (!m) return '';
+    return '<span class="badge" title="'+m.label+'"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="'+m.icon+'"/></svg>'+m.label+'</span>';
+  }).join('');
+}
+var CROWN_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 8l4 4 5-7 5 7 4-4-2 11H5z"/></svg>';
+
+// Count-up on a whole-dollar figure.
+function countUp(el, target, prefix){
+  prefix = prefix || '';
+  if (!el) return;
+  if (REDUCED || target === 0){ el.textContent = prefix + Math.round(target).toLocaleString('en-US'); return; }
+  var dur = 950, start = performance.now();
+  function step(t){
+    var k = Math.min(1, (t - start) / dur);
+    var e = 1 - Math.pow(1 - k, 3);
+    el.textContent = prefix + Math.round(target * e).toLocaleString('en-US');
+    if (k < 1) requestAnimationFrame(step);
+    else el.textContent = prefix + Math.round(target).toLocaleString('en-US');
+  }
+  requestAnimationFrame(step);
+}
+
+var CHECK_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>';
+
+// ---------- TEAM tier ladder (collective, gamified, blue) ----------
+function renderLadder(pd, teamTiersTop){
+  var slot = document.getElementById('ladder-slot');
+  slot.innerHTML = '';
+  var t = (pd && pd.team) || {};
+  var tiers = (t.tiers && t.tiers.length ? t.tiers : teamTiersTop) || [];
+  if (!tiers.length){ return; }
+  var cash = t.cash || 0;
+  var topTier = tiers[tiers.length - 1] || 0;
+  if (topTier <= 0){ return; }
+
+  // level = number of tiers already unlocked
+  var passedCount = 0;
+  for (var i = 0; i < tiers.length; i++){ if (cash >= tiers[i]) passedCount++; }
+  var allDone = passedCount >= tiers.length;
+  var nextTier = allDone ? topTier : tiers[passedCount];
+  var prevTier = passedCount > 0 ? tiers[passedCount - 1] : 0;
+
+  var fillPct = Math.max(0, Math.min(100, (cash / topTier) * 100));
+
+  // percent toward the NEXT tier (within the current band)
+  var bandSpan = Math.max(1, nextTier - prevTier);
+  var bandProg = allDone ? 100 : Math.max(0, Math.min(100, ((cash - prevTier) / bandSpan) * 100));
+  var bandShown = (bandProg > 0 && bandProg < 1) ? Math.round(bandProg * 10) / 10 : Math.round(bandProg);
+  var toUnlock = Math.max(0, nextTier - cash);
+
+  // Short headline (one line on a phone). Detail lives in the unlock line.
+  var levelLabel = allDone
+    ? '<span class="l-level"><b>Team maxed out</b></span>'
+    : '<span class="l-level">Level <b>'+passedCount+'</b> of '+tiers.length+'</span>';
+
+  var unlockLine = allDone
+    ? '<span>Every level cleared</span><span class="l-next">Keep stacking</span>'
+    : '<span><b>'+fmtUSD(toUnlock)+'</b> to reach '+fmtUSD(nextTier)+'</span><span class="l-next">'+bandShown+'% to Level '+(passedCount+1)+'</span>';
+
+  // gate markers + tier legend
+  var gatesHTML = '';
+  var legendHTML = '';
+  tiers.forEach(function(tv, idx){
+    var passed = cash >= tv;
+    var isNext = (!allDone && idx === passedCount);
+    var leftPct = Math.max(0, Math.min(100, (tv / topTier) * 100));
+    // only draw interior gates (top tier is the rail end)
+    if (idx < tiers.length - 1){
+      gatesHTML += '<span class="l-gate'+(passed?' passed':'')+'" style="left:'+leftPct+'%"></span>';
+    }
+    var tick = passed ? '<span class="tick">'+CHECK_SVG+'</span>' : '';
+    var state = passed ? 'Unlocked' : (isNext ? 'In reach' : 'Locked');
+    legendHTML += '<div class="l-tier'+(passed?' passed':'')+(isNext?' next':'')+'">'
+      + '<span class="tt">'+tick+'Level '+(idx+1)+'</span>'
+      + '<span class="tv">'+fmtUSD(tv)+'</span>'
+      + '<span class="ts">'+state+'</span>'
+      + '</div>';
+  });
+
+  var el = document.createElement('div');
+  el.className = 'ladder';
+  el.setAttribute('aria-label', 'Team collective goal, tier ladder');
+  el.innerHTML =
+      '<div class="ladder-top">'
+    +   '<div><span class="l-eyebrow">Team goal</span>'+levelLabel+'</div>'
+    +   '<div class="l-cash"><div class="l-cashamt">$0</div><div class="l-cashlbl">collected</div></div>'
+    + '</div>'
+    + '<div class="l-track-wrap">'
+    +   '<div class="l-track"><span class="l-fill" data-fill="'+fillPct+'"></span>'+gatesHTML+'</div>'
+    +   '<div class="l-tiers">'+legendHTML+'</div>'
+    + '</div>'
+    + '<div class="l-unlock">'+unlockLine+'</div>';
+  slot.appendChild(el);
+  countUp(el.querySelector('.l-cashamt'), cash, '$');
+}
+
+// ---------- FLIP animation (animated card reorder) ----------
+function repKey(r){ return String((r && (r.ghlId || r.name)) || ''); }
+
+// Record each visible card's current screen rect, keyed by stable rep id.
+function captureCardRects(){
+  var map = {};
+  document.querySelectorAll('#lanes .card').forEach(function(el){
+    var k = el.getAttribute('data-rep');
+    if (k) map[k] = el.getBoundingClientRect();
+  });
+  return map;
+}
+
+// After the new cards are in the DOM, animate each from its old position to the new one.
+function playFlip(firstRects){
+  var cards = document.querySelectorAll('#lanes .card');
+  cards.forEach(function(el){
+    var k = el.getAttribute('data-rep');
+    var first = firstRects[k];
+    if (!first) return; // new card: let its normal rise-in animation play
+    var last = el.getBoundingClientRect();
+    var dx = first.left - last.left;
+    var dy = first.top - last.top;
+    if (Math.abs(dx) < 1 && Math.abs(dy) < 1) return; // did not move
+    // suppress the intro rise while we FLIP an existing card
+    el.style.animation = 'none';
+    el.style.opacity = '1';
+    el.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+    el.style.transition = 'none';
+    // next frame: release to the new position with an ease-out glide
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        el.style.transition = 'transform .52s cubic-bezier(.2,.75,.25,1)';
+        el.style.transform = 'translate(0,0)';
+      });
+    });
+    el.addEventListener('transitionend', function te(ev){
+      if (ev.propertyName !== 'transform') return;
+      el.style.transition = ''; el.style.transform = ''; el.style.opacity = '';
+      el.removeEventListener('transitionend', te);
+    });
+  });
+}
+
+// ---------- Build one rep card ----------
+function repCard(r, i, target, above, noCash, badges){
+  var isChamp = r.rank === 1;
+  var zero = (r.cash || 0) === 0;
+  var pct = target > 0 ? (r.cash || 0) / target * 100 : 0;
+  var pctFill = Math.max(0, Math.min(100, pct));
+  var pctShown = (pct > 0 && pct < 1) ? Math.round(pct * 10) / 10 : Math.round(pct);
+  var remaining = Math.max(0, target - (r.cash || 0));
+
+  // race push line (short so it never wraps on a phone)
+  var push;
+  if (pct >= 100) push = 'Goal reached';
+  else if (pct <= 0) push = 'First on the board wins';
+  else if (pct < 25) push = 'Every deal counts';
+  else if (pct < 75) push = 'Keep pushing';
+  else push = 'Almost there';
+
+  // chase gap to rep above
+  var chaseHTML;
+  if (!above){
+    chaseHTML = '<span class="chase pace">Setting the pace</span>';
+  } else if ((above.cash || 0) > 0){
+    var gap = Math.max(0, (above.cash || 0) - (r.cash || 0)) + 1;
+    chaseHTML = '<span class="chase"><b>'+fmtUSD(gap)+'</b> to pass '+esc(above.first)+'</span>';
+  } else {
+    var pgap = Math.max(0, (above.pipelineOwned || 0) - (r.pipelineOwned || 0)) + 1;
+    chaseHTML = '<span class="chase"><b>'+fmtNum(pgap)+'</b> pipeline to pass '+esc(above.first)+'</span>';
+  }
+
+  var el = document.createElement('article');
+  el.className = 'card' + (isChamp ? ' champ' : '') + (zero ? ' zero' : '');
+  el.setAttribute('data-rep', repKey(r));
+  el.style.animationDelay = (0.05 + i * 0.08) + 's';
+  el.setAttribute('aria-label', r.name + ', rank ' + r.rank);
+
+  el.innerHTML =
+    // Row 1: identity
+      '<div class="id">'
+    +   '<span class="rankbadge">'+r.rank+'</span>'
+    +   '<span class="ava"'+avatarStyle(r)+'>'+avatarInner(r)+'</span>'
+    +   '<div class="idbody">'
+    +     '<div class="nameline"><span class="name">'+esc(r.name)+'</span>'
+    +       (isChamp ? '<span class="crown">'+CROWN_SVG+'Leading</span>' : '')
+    +     '</div>'
+    +     '<div class="chips">'+badgeHTML(badges[r.name])+'</div>'
+    +   '</div>'
+    + '</div>'
+    // Row 2: hero race to target
+    + '<div class="race">'
+    +   '<div class="race-top">'
+    +     '<div class="cash"><span class="amt">$0</span><span class="of">of '+fmtUSD(target)+' goal</span></div>'
+    +     '<div class="pct">'+pctShown+'%<span>to goal</span></div>'
+    +   '</div>'
+    +   '<div class="bar"><i data-fill="'+pctFill+'"></i></div>'
+    +   '<div class="race-foot"><span><b>'+fmtUSD(remaining)+'</b> to go</span><span class="push">'+push+'</span></div>'
+    + '</div>'
+    // Row 3: compact stats (plain-English labels, kept short so they never wrap)
+    + '<div class="stats">'
+    +   '<div class="stat"><span class="k">Deals won</span><span class="v'+(r.dealsWon?'':' muted')+'">'+fmtNum(r.dealsWon||0)+'</span></div>'
+    +   '<div class="stat"><span class="k">Open deals</span><span class="v">'+fmtNum(r.pipelineOwned||0)+'</span></div>'
+    +   '<div class="stat"><span class="k">Meetings</span><span class="v'+(r.apptsBooked==null?' muted':'')+'">'+apptText(r.apptsBooked)+'</span></div>'
+    +   '<div class="stat"><span class="k">Close rate</span><span class="v">'+esc(r.closeRate||'0%')+'</span></div>'
+    + '</div>'
+    // Row 4: chase gap to rep above
+    + '<div class="foot">'
+    +   chaseHTML
+    + '</div>';
+
+  countUp(el.querySelector('.cash .amt'), r.cash || 0, '$');
+
+  return el;
+}
+
+// Recompute order + rank from the REAL values (never trust the data's rank field):
+// cash desc, then deals won desc, then pipeline owned desc. Assign displayed rank from this order.
+function rankReps(reps){
+  var sorted = (reps || []).slice().sort(function(a,b){
+    return (b.cash || 0) - (a.cash || 0)
+        || (b.dealsWon || 0) - (a.dealsWon || 0)
+        || (b.pipelineOwned || 0) - (a.pipelineOwned || 0);
+  });
+  sorted.forEach(function(r, i){ r.rank = i + 1; });
+  return sorted;
+}
+
+function render(data, period, flip){
+  CURRENT = data;
+  var periods = data.periods || {};
+  period = period || 'monthly';
+  var pd = periods[period] || {};
+  var reps = rankReps(pd.reps);
+  var target = pd.targetPerRep || data.cashTargetPerRep || 0;
+  var leaderCash = Math.max.apply(null, reps.map(function(r){ return r.cash || 0; }).concat([0]));
+  var noCash = leaderCash === 0;
+  var badges = computeBadges(reps);
+
+  // FLIP: record current card positions (keyed by stable rep id) BEFORE we wipe the lanes.
+  var firstRects = (flip && !REDUCED) ? captureCardRects() : null;
+
+  // meta
+  document.getElementById('window').textContent = pd.window || '';
+  document.getElementById('asof').textContent = 'as of ' + (data.asOf || '');
+  document.getElementById('rankby').textContent = noCash ? 'Ranked by open pipeline' : 'Ranked by ' + (data.rankBy || 'cash');
+  document.getElementById('prov').textContent = (data.source || '').replace(/\s*\(live\)\s*$/,'') || 'GoHighLevel + Stripe';
+  document.getElementById('intro-lbl').textContent = 'Race to ' + fmtUSD(target);
+
+  // team tier ladder (collective goal)
+  renderLadder(pd, data.teamTiers);
+
+  // honest empty-period notice
+  var noticeSlot = document.getElementById('notice-slot');
+  if (noCash){
+    var when = (period === 'daily') ? 'today' : (period === 'weekly') ? 'this week' : 'this month';
+    noticeSlot.innerHTML = '<div class="notice">No cash collected '+when+'. <b>First on the board wins.</b> Ranked by open pipeline until then.</div>';
+  } else {
+    noticeSlot.innerHTML = '';
+  }
+
+  // rep cards
+  var lanes = document.getElementById('lanes');
+  lanes.innerHTML = '';
+  reps.forEach(function(r, i){
+    lanes.appendChild(repCard(r, i, target, reps[i - 1], noCash, badges));
+  });
+
+  // FLIP: glide each card from its old screen position to its new one.
+  if (firstRects) playFlip(firstRects);
+
+  // team summary
+  var t = pd.team || {};
+  var cards = [
+    { cls:'cash', k:'Cash collected', value:t.cash, money:true, f:'this window' },
+    { cls:'', k:'Deals won', value:t.dealsWon, f:'closed' },
+    { cls:'', k:'Open deals', value:t.pipelineOwned, f:'in progress' },
+    { cls:'', k:'Meetings booked', value:t.apptsBooked, f:'this window', nullable:true }
+  ];
+  var teamEl = document.getElementById('team');
+  teamEl.innerHTML = '';
+  cards.forEach(function(c){
+    var isNull = c.nullable && c.value == null;
+    var d = document.createElement('div');
+    d.className = 'tcard ' + c.cls;
+    var initial = isNull ? NULLDASH : (c.money ? '$0' : '0');
+    d.innerHTML = '<span class="k">'+c.k+'</span><span class="v'+(isNull?' muted':'')+'">'+initial+'</span><span class="f">'+c.f+'</span>';
+    teamEl.appendChild(d);
+    if (!isNull) countUp(d.querySelector('.v'), c.value || 0, c.money ? '$' : '');
+  });
+
+  // grow bars after paint
+  var grow = function(){
+    document.querySelectorAll('.bar > i, .l-fill').forEach(function(bar){
+      bar.style.width = (parseFloat(bar.getAttribute('data-fill')) || 0) + '%';
+    });
+  };
+  if (REDUCED) grow();
+  else setTimeout(function(){ requestAnimationFrame(grow); }, 220);
+}
+
+/* ---------- Tab wiring ---------- */
+var PERIODS = ['daily','weekly','monthly'];
+var CURRENT_PERIOD = 'monthly';   // the user's selected tab (poller re-renders THIS, never jumps back)
+function selectTab(period, firstLoad){
+  CURRENT_PERIOD = period;
+  PERIODS.forEach(function(p){
+    var btn = document.getElementById('tab-'+p);
+    var on = p === period;
+    btn.setAttribute('aria-selected', on ? 'true' : 'false');
+    btn.tabIndex = on ? 0 : -1;
+  });
+  document.getElementById('board').setAttribute('aria-labelledby', 'tab-'+period);
+  var region = document.getElementById('board');
+  if (firstLoad || REDUCED){
+    render(CURRENT, period);
+  } else {
+    region.classList.add('swapping');
+    setTimeout(function(){
+      render(CURRENT, period);
+      requestAnimationFrame(function(){ region.classList.remove('swapping'); });
+    }, 150);
+  }
+}
+
+// Live update from a fresh poll: re-render the CURRENT tab in place with a FLIP reorder.
+function applyLiveData(data){
+  CURRENT = data;
+  render(CURRENT, CURRENT_PERIOD, true /* flip */);
+}
+
+(function wireTabs(){
+  var tabs = document.getElementById('tabs');
+  tabs.addEventListener('click', function(e){
+    var b = e.target.closest('.tab'); if (!b) return;
+    selectTab(b.getAttribute('data-period'));
+  });
+  tabs.addEventListener('keydown', function(e){
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    var cur = PERIODS.indexOf(document.querySelector('.tab[aria-selected="true"]').getAttribute('data-period'));
+    var nxt = e.key === 'ArrowRight' ? (cur + 1) % PERIODS.length : (cur + PERIODS.length - 1) % PERIODS.length;
+    selectTab(PERIODS[nxt]);
+    document.getElementById('tab-'+PERIODS[nxt]).focus();
+  });
+})();
+
+/* ============================================================
+   LIVE polling engine
+   - refetch leaderboard.json every 15s (cache-busted, no-store)
+   - only re-render when the data actually changed (FLIP reorder)
+   - pause while the tab is hidden, refetch immediately on return
+   - single timer (no stacking/leaks); keep last good data on error
+   ============================================================ */
+var POLL_MS = 15000;
+var pollTimer = null;
+var LAST_JSON = '';        // signature of the last data we rendered
+var inFlight = false;
+
+function fetchLeaderboard(){
+  return fetch('leaderboard.json?t=' + Date.now(), { cache: 'no-store' })
+    .then(function(res){ if(!res.ok) throw new Error('bad status'); return res.json(); });
+}
+
+// One poll cycle: fetch, and if changed, apply as a live update.
+function pollOnce(){
+  if (inFlight) return;
+  inFlight = true;
+  fetchLeaderboard()
+    .then(function(data){
+      inFlight = false;
+      var sig = JSON.stringify(data);
+      if (sig !== LAST_JSON){
+        LAST_JSON = sig;
+        applyLiveData(data);
+      }
+    })
+    .catch(function(){
+      inFlight = false;   // keep last good data, try again next interval
+    });
+}
+
+function startPolling(){
+  if (pollTimer !== null) return;           // never stack timers
+  pollTimer = setInterval(function(){
+    if (!document.hidden) pollOnce();
+  }, POLL_MS);
+}
+function stopPolling(){
+  if (pollTimer !== null){ clearInterval(pollTimer); pollTimer = null; }
+}
+
+document.addEventListener('visibilitychange', function(){
+  if (document.hidden){
+    stopPolling();
+  } else {
+    pollOnce();       // refetch immediately on return
+    startPolling();
+  }
+});
+
+(function boot(){
+  fetchLeaderboard()
+    .then(function(data){
+      CURRENT = data; LAST_JSON = JSON.stringify(data);
+      selectTab('monthly', true);
+    })
+    .catch(function(){
+      CURRENT = FALLBACK; LAST_JSON = JSON.stringify(FALLBACK);
+      selectTab('monthly', true);   // degrade gracefully to the inlined fallback
+    })
+    .then(function(){
+      if (!document.hidden) startPolling();
+    });
+})();
+</script>
 </body>
 </html>
