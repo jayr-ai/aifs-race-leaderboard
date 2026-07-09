@@ -1,0 +1,53 @@
+name: AIFS Sales Leaderboard refresh
+on:
+  schedule:
+    - cron: "0 7 * * *"          # 07:00 UTC = 5pm Australia/Brisbane (Queensland, no DST) = midnight US Pacific.
+                                 # Runs in the GitHub cloud every day, never depends on any machine being on.
+  workflow_dispatch: {}          # manual "Run workflow" button, use for the first validation run
+concurrency: { group: aifs-leaderboard-refresh, cancel-in-progress: false }
+permissions:
+  contents: write               # needed to commit + push the refreshed leaderboard.json
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GHL_API_TOKEN: ${{ secrets.GHL_API_TOKEN }}
+      STRIPE_API_KEY: ${{ secrets.STRIPE_API_KEY }}
+      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      SLACK_RECIPIENTS: ${{ secrets.SLACK_RECIPIENTS }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+
+      - name: Pull live standings (GHL + Stripe) and audit
+        run: python3 build_leaderboard.py     # fails loud on any pull error or audit failure, leaves last-good file
+
+      # No Railway in this deployment: the board is static GitHub Pages, so "deploy" is
+      # committing the freshly audited leaderboard.json back to main. index.html already
+      # fetches it via a relative path, so a plain push is the whole deploy step.
+      - name: Commit and push the refreshed board
+        run: |
+          git config user.name "aifs-leaderboard-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if git diff --quiet -- leaderboard.json; then
+            echo "no change, nothing to deploy"
+          else
+            git add leaderboard.json
+            git commit -m "Refresh leaderboard $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: Verify promotion (poll the live GitHub Pages URL for today's date)
+        run: |
+          ok=0
+          for i in $(seq 1 20); do
+            curl -s "https://jayvee-eaze.github.io/aifs-race-leaderboard/leaderboard.json?t=$(date +%s)" | grep -q "$(TZ=Australia/Brisbane date +%Y-%m-%d)" && { ok=1; break; }
+            sleep 8
+          done
+          [ "$ok" = "1" ] || { echo "not promoted"; exit 1; }
+
+      - name: Slack the standings (skips silently if no token)
+        if: ${{ env.SLACK_BOT_TOKEN != '' }}
+        run: python3 slack_daily.py
