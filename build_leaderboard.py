@@ -42,6 +42,7 @@ WINDOW_START = datetime.date.fromisoformat(os.environ.get("WINDOW_START", "2026-
 USER = {
     "KyR0lFZOC0l0GQHM6SLv": "Caleb Chase",
     "Z3WFuyTIWmoZMmzNJrRl": "Dan Baldasso",
+    "udlufVaizOrN5ZiOGhQL": "Carlos Fierro",
 }
 FIRST = {full: full.split()[0] for full in USER.values()}
 
