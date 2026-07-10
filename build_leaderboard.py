@@ -76,6 +76,10 @@ def _req(url, headers=None, data=None, method="GET", tries=3):
             h = dict(headers or {})
             if body is not None:
                 h["Content-Type"] = "application/json"
+            # urllib's default User-Agent ("Python-urllib/3.x") trips GHL's Cloudflare WAF
+            # (error code 1010), a hard block unrelated to the token or its scopes. A plain
+            # non-Python User-Agent clears it; confirmed directly against the live API.
+            h.setdefault("User-Agent", "Mozilla/5.0 (compatible; AIFS-Leaderboard-Bot/1.0)")
             req = urllib.request.Request(url, data=body, headers=h, method=method)
             with urllib.request.urlopen(req, timeout=60) as r:
                 return json.loads(r.read().decode())
