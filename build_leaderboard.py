@@ -41,7 +41,7 @@ WINDOW_START = datetime.date.fromisoformat(os.environ.get("WINDOW_START", "2026-
 # James Wellington, Matthew Burns, and Dan Baldasso are intentionally excluded (no longer on the team).
 USER = {
     "KyR0lFZOC0l0GQHM6SLv": "Caleb Chase",
-    "udlufVaizOrN5ZiOGhQL": "Carlos Fierro",
+    "IF539f5WaTOw2WwPoo88": "Carlos Fierro",
 }
 FIRST = {full: full.split()[0] for full in USER.values()}
 
