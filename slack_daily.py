@@ -34,7 +34,7 @@ lines = ["*AIFS Sales Leaderboard*", ""] + goal
 lines += block("monthly", "This Month") + [""]
 lines += block("weekly", "This Week") + [""]
 lines += block("daily", "Today") + [""]
-lines += ["https://jayvee-eaze.github.io/aifs-race-leaderboard/"]
+lines += ["https://aifs-race-leaderboard-production.up.railway.app"]
 text = "\n".join(lines)
 
 
