@@ -24,9 +24,10 @@ jobs:
       - name: Pull live standings (GHL + Stripe) and audit
         run: python3 build_leaderboard.py     # fails loud on any pull error or audit failure, leaves last-good file
 
-      # No Railway in this deployment: the board is static GitHub Pages, so "deploy" is
-      # committing the freshly audited leaderboard.json back to main. index.html already
-      # fetches it via a relative path, so a plain push is the whole deploy step.
+      # Deploy = commit the freshly audited leaderboard.json back to main. Railway is
+      # connected to this GitHub repo and auto-redeploys on every push to main, so the
+      # push below is the whole deploy step; GitHub Pages also still serves the same
+      # repo as a redundant static mirror, no separate action needed for either.
       - name: Commit and push the refreshed board
         run: |
           git config user.name "aifs-leaderboard-bot"
@@ -39,11 +40,11 @@ jobs:
             git push
           fi
 
-      - name: Verify promotion (poll the live GitHub Pages URL for today's date)
+      - name: Verify promotion (poll the live Railway URL for today's date)
         run: |
           ok=0
           for i in $(seq 1 20); do
-            curl -s "https://jayvee-eaze.github.io/aifs-race-leaderboard/leaderboard.json?t=$(date +%s)" | grep -q "$(TZ=Australia/Brisbane date +%Y-%m-%d)" && { ok=1; break; }
+            curl -s "https://aifs-race-leaderboard-production.up.railway.app/leaderboard.json?t=$(date +%s)" | grep -q "$(TZ=Australia/Brisbane date +%Y-%m-%d)" && { ok=1; break; }
             sleep 8
           done
           [ "$ok" = "1" ] || { echo "not promoted"; exit 1; }
