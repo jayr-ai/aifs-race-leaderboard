@@ -10,7 +10,8 @@
   ],
   "roster": [
     "Caleb Chase",
-    "Carlos Fierro"
+    "Carlos Fierro",
+    "James Wellington"
   ],
   "periods": {
     "daily": {
@@ -20,10 +21,10 @@
       "team": {
         "cash": 0,
         "dealsWon": 0,
-        "pipelineOwned": 245,
-        "apptsBooked": 13,
+        "pipelineOwned": 247,
+        "apptsBooked": 14,
         "closeRate": "0.0%",
-        "unassignedPipeline": 3,
+        "unassignedPipeline": 1,
         "stripeCollected": 1994,
         "tiers": [
           6667,
@@ -57,6 +58,19 @@
           "closeRate": "0.0%",
           "ghlId": "IF539f5WaTOw2WwPoo88",
           "photo": null
+        },
+        {
+          "rank": 3,
+          "name": "James Wellington",
+          "first": "James",
+          "cash": 0,
+          "target": 5000,
+          "dealsWon": 0,
+          "pipelineOwned": 2,
+          "apptsBooked": 1,
+          "closeRate": "0.0%",
+          "ghlId": "zqTQ1FHgPWvS6H4g7520",
+          "photo": null
         }
       ]
     },
@@ -67,10 +81,10 @@
       "team": {
         "cash": 0,
         "dealsWon": 0,
-        "pipelineOwned": 245,
-        "apptsBooked": 21,
+        "pipelineOwned": 247,
+        "apptsBooked": 22,
         "closeRate": "0.0%",
-        "unassignedPipeline": 3,
+        "unassignedPipeline": 1,
         "stripeCollected": 1994,
         "tiers": [
           46667,
@@ -104,6 +118,19 @@
           "closeRate": "0.0%",
           "ghlId": "IF539f5WaTOw2WwPoo88",
           "photo": null
+        },
+        {
+          "rank": 3,
+          "name": "James Wellington",
+          "first": "James",
+          "cash": 0,
+          "target": 35000,
+          "dealsWon": 0,
+          "pipelineOwned": 2,
+          "apptsBooked": 1,
+          "closeRate": "0.0%",
+          "ghlId": "zqTQ1FHgPWvS6H4g7520",
+          "photo": null
         }
       ]
     },
@@ -114,10 +141,10 @@
       "team": {
         "cash": 6991,
         "dealsWon": 3,
-        "pipelineOwned": 245,
-        "apptsBooked": 87,
+        "pipelineOwned": 247,
+        "apptsBooked": 88,
         "closeRate": "1.2%",
-        "unassignedPipeline": 3,
+        "unassignedPipeline": 1,
         "stripeCollected": 6991,
         "tiers": [
           200000,
@@ -151,6 +178,19 @@
           "closeRate": "0.0%",
           "ghlId": "IF539f5WaTOw2WwPoo88",
           "photo": null
+        },
+        {
+          "rank": 3,
+          "name": "James Wellington",
+          "first": "James",
+          "cash": 0,
+          "target": 150000,
+          "dealsWon": 0,
+          "pipelineOwned": 2,
+          "apptsBooked": 1,
+          "closeRate": "0.0%",
+          "ghlId": "zqTQ1FHgPWvS6H4g7520",
+          "photo": null
         }
       ]
     }
@@ -160,6 +200,6 @@
     "stripeCash": 6991,
     "deltaCents": 0,
     "status": "reconciled",
-    "checkedAt": "2026-07-14T12:58:28+10:00"
+    "checkedAt": "2026-07-14T13:05:31+10:00"
   }
 }
