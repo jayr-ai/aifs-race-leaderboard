@@ -21,7 +21,7 @@
       "team": {
         "cash": 997,
         "dealsWon": 0,
-        "pipelineOwned": 258,
+        "pipelineOwned": 262,
         "apptsBooked": 12,
         "closeRate": "0.0%",
         "unassignedPipeline": 1,
@@ -41,7 +41,7 @@
           "cash": 997,
           "target": 5000,
           "dealsWon": 0,
-          "pipelineOwned": 132,
+          "pipelineOwned": 136,
           "apptsBooked": 5,
           "closeRate": "0.0%",
           "ghlId": "KyR0lFZOC0l0GQHM6SLv",
@@ -82,7 +82,7 @@
       "team": {
         "cash": 2991,
         "dealsWon": 0,
-        "pipelineOwned": 258,
+        "pipelineOwned": 262,
         "apptsBooked": 41,
         "closeRate": "0.0%",
         "unassignedPipeline": 1,
@@ -102,7 +102,7 @@
           "cash": 2991,
           "target": 35000,
           "dealsWon": 0,
-          "pipelineOwned": 132,
+          "pipelineOwned": 136,
           "apptsBooked": 14,
           "closeRate": "0.0%",
           "ghlId": "KyR0lFZOC0l0GQHM6SLv",
@@ -143,9 +143,9 @@
       "team": {
         "cash": 7988,
         "dealsWon": 4,
-        "pipelineOwned": 258,
+        "pipelineOwned": 262,
         "apptsBooked": 107,
-        "closeRate": "1.6%",
+        "closeRate": "1.5%",
         "unassignedPipeline": 1,
         "unattributedCash": 0,
         "stripeCollected": 7988,
@@ -163,9 +163,9 @@
           "cash": 7988,
           "target": 150000,
           "dealsWon": 4,
-          "pipelineOwned": 132,
+          "pipelineOwned": 136,
           "apptsBooked": 80,
-          "closeRate": "3.0%",
+          "closeRate": "2.9%",
           "ghlId": "KyR0lFZOC0l0GQHM6SLv",
           "photo": null
         },
@@ -203,6 +203,6 @@
     "stripeCash": 7988,
     "deltaCents": 0,
     "status": "reconciled",
-    "checkedAt": "2026-07-16T14:42:29+10:00"
+    "checkedAt": "2026-07-16T22:10:54+10:00"
   }
 }
