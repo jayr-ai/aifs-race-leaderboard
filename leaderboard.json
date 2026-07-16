@@ -141,13 +141,13 @@
       "window": "1 Jul to 16 Jul 2026",
       "targetPerRep": 150000,
       "team": {
-        "cash": 2991,
+        "cash": 7988,
         "dealsWon": 4,
         "pipelineOwned": 258,
         "apptsBooked": 107,
         "closeRate": "1.6%",
         "unassignedPipeline": 1,
-        "unattributedCash": 4997,
+        "unattributedCash": 0,
         "stripeCollected": 7988,
         "tiers": [
           200000,
@@ -160,7 +160,7 @@
           "rank": 1,
           "name": "Caleb Chase",
           "first": "Caleb",
-          "cash": 2991,
+          "cash": 7988,
           "target": 150000,
           "dealsWon": 4,
           "pipelineOwned": 132,
@@ -203,6 +203,6 @@
     "stripeCash": 7988,
     "deltaCents": 0,
     "status": "reconciled",
-    "checkedAt": "2026-07-16T14:38:20+10:00"
+    "checkedAt": "2026-07-16T14:42:29+10:00"
   }
 }
