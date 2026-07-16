@@ -173,6 +173,17 @@ def pull_stripe_charges(key):
     return out
 
 
+# One-time historical exception, not a generalized fallback: this single charge predates
+# the checkout funnel that stamps metadata.contactId (no metadata, no customer, no billing
+# email at all on it - verified directly against Stripe). The opportunity it pays for
+# (Haresh Emandi) is confirmed assigned to Caleb Chase and already marked won in GHL.
+# Every other real charge seen so far (the deposit-funnel ones) carries metadata.contactId
+# fine; add a new entry here only if another charge is ever found with the same gap.
+LEGACY_CHARGE_OWNER = {
+    "py_3To3zjANb4ghm41m2X6hLEbE": "KyR0lFZOC0l0GQHM6SLv",  # Haresh Emandi, $4,997, 2026-06-30
+}
+
+
 def contact_owner_map(opps):
     """contactId -> rep uid, from opportunities currently owned by a roster rep. Used to
     attribute real Stripe cash to a rep without trusting GHL's own monetaryValue field,
@@ -201,7 +212,7 @@ def cash_between(charges, owner_of, a, b):
         if not (lo <= t < hi):
             continue
         cid = (c.get("metadata") or {}).get("contactId")
-        uid = owner_of.get(cid) if cid else None
+        uid = (owner_of.get(cid) if cid else None) or LEGACY_CHARGE_OWNER.get(c.get("id"))
         if uid:
             per_uid[uid] += c["amount"] / 100.0
         else:
