@@ -21,7 +21,7 @@
       "team": {
         "cash": 0,
         "dealsWon": 0,
-        "pipelineOwned": 297,
+        "pipelineOwned": 298,
         "apptsBooked": 7,
         "closeRate": "0.0%",
         "unassignedPipeline": 1,
@@ -54,7 +54,7 @@
           "cash": 0,
           "target": 5000,
           "dealsWon": 0,
-          "pipelineOwned": 124,
+          "pipelineOwned": 125,
           "apptsBooked": 2,
           "closeRate": "0.0%",
           "ghlId": "IF539f5WaTOw2WwPoo88",
@@ -82,7 +82,7 @@
       "team": {
         "cash": 0,
         "dealsWon": 0,
-        "pipelineOwned": 297,
+        "pipelineOwned": 298,
         "apptsBooked": 15,
         "closeRate": "0.0%",
         "unassignedPipeline": 1,
@@ -115,7 +115,7 @@
           "cash": 0,
           "target": 35000,
           "dealsWon": 0,
-          "pipelineOwned": 124,
+          "pipelineOwned": 125,
           "apptsBooked": 3,
           "closeRate": "0.0%",
           "ghlId": "IF539f5WaTOw2WwPoo88",
@@ -142,10 +142,10 @@
       "targetPerRep": 150000,
       "team": {
         "cash": 8985,
-        "dealsWon": 5,
-        "pipelineOwned": 297,
+        "dealsWon": 6,
+        "pipelineOwned": 298,
         "apptsBooked": 144,
-        "closeRate": "1.7%",
+        "closeRate": "2.0%",
         "unassignedPipeline": 1,
         "unattributedCash": 0,
         "stripeCollected": 8985,
@@ -175,10 +175,10 @@
           "first": "Carlos",
           "cash": 0,
           "target": 150000,
-          "dealsWon": 0,
-          "pipelineOwned": 124,
+          "dealsWon": 1,
+          "pipelineOwned": 125,
           "apptsBooked": 32,
-          "closeRate": "0.0%",
+          "closeRate": "0.8%",
           "ghlId": "IF539f5WaTOw2WwPoo88",
           "photo": null
         },
@@ -203,6 +203,6 @@
     "stripeCash": 8985,
     "deltaCents": 0,
     "status": "reconciled",
-    "checkedAt": "2026-07-22T08:59:10+10:00"
+    "checkedAt": "2026-07-22T22:17:53+10:00"
   }
 }
