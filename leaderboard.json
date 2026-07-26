@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-07-25",
+  "asOf": "2026-07-26",
   "source": "GoHighLevel opportunities + Stripe payments (live)",
   "rankBy": "cash, then deals won, then pipeline owned",
   "cashTargetPerRep": 150000,
@@ -16,7 +16,7 @@
   "periods": {
     "daily": {
       "label": "Today",
-      "window": "25 Jul 2026",
+      "window": "26 Jul 2026",
       "targetPerRep": 5000,
       "team": {
         "cash": 0,
@@ -42,7 +42,7 @@
           "target": 5000,
           "dealsWon": 0,
           "pipelineOwned": 274,
-          "apptsBooked": 0,
+          "apptsBooked": 1,
           "closeRate": "0.0%",
           "ghlId": "KyR0lFZOC0l0GQHM6SLv",
           "photo": null
@@ -68,7 +68,7 @@
           "target": 5000,
           "dealsWon": 0,
           "pipelineOwned": 8,
-          "apptsBooked": 1,
+          "apptsBooked": 0,
           "closeRate": "0.0%",
           "ghlId": "IF539f5WaTOw2WwPoo88",
           "photo": null
@@ -77,13 +77,13 @@
     },
     "weekly": {
       "label": "This Week",
-      "window": "20 Jul to 25 Jul 2026",
+      "window": "20 Jul to 26 Jul 2026",
       "targetPerRep": 35000,
       "team": {
         "cash": 1997,
         "dealsWon": 1,
         "pipelineOwned": 298,
-        "apptsBooked": 23,
+        "apptsBooked": 24,
         "closeRate": "0.3%",
         "unassignedPipeline": 1,
         "unattributedCash": 0,
@@ -103,7 +103,7 @@
           "target": 35000,
           "dealsWon": 1,
           "pipelineOwned": 274,
-          "apptsBooked": 14,
+          "apptsBooked": 15,
           "closeRate": "0.4%",
           "ghlId": "KyR0lFZOC0l0GQHM6SLv",
           "photo": null
@@ -138,13 +138,13 @@
     },
     "monthly": {
       "label": "This Month",
-      "window": "1 Jul to 25 Jul 2026",
+      "window": "1 Jul to 26 Jul 2026",
       "targetPerRep": 150000,
       "team": {
         "cash": 10982,
         "dealsWon": 7,
         "pipelineOwned": 298,
-        "apptsBooked": 152,
+        "apptsBooked": 153,
         "closeRate": "2.3%",
         "unassignedPipeline": 1,
         "unattributedCash": 0,
@@ -164,7 +164,7 @@
           "target": 150000,
           "dealsWon": 7,
           "pipelineOwned": 274,
-          "apptsBooked": 110,
+          "apptsBooked": 111,
           "closeRate": "2.6%",
           "ghlId": "KyR0lFZOC0l0GQHM6SLv",
           "photo": null
@@ -203,6 +203,6 @@
     "stripeCash": 10982,
     "deltaCents": 0,
     "status": "reconciled",
-    "checkedAt": "2026-07-25T21:03:02+10:00"
+    "checkedAt": "2026-07-26T21:44:24+10:00"
   }
 }
