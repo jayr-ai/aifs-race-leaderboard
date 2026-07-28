@@ -19,14 +19,14 @@
       "window": "28 Jul 2026",
       "targetPerRep": 5000,
       "team": {
-        "cash": 0,
+        "cash": 1997,
         "dealsWon": 0,
         "pipelineOwned": 298,
         "apptsBooked": 1,
         "closeRate": "0.0%",
         "unassignedPipeline": 1,
         "unattributedCash": 0,
-        "stripeCollected": 0,
+        "stripeCollected": 1997,
         "tiers": [
           6667,
           13333,
@@ -38,7 +38,7 @@
           "rank": 1,
           "name": "Caleb Chase",
           "first": "Caleb",
-          "cash": 0,
+          "cash": 1997,
           "target": 5000,
           "dealsWon": 0,
           "pipelineOwned": 274,
@@ -80,14 +80,14 @@
       "window": "27 Jul to 28 Jul 2026",
       "targetPerRep": 35000,
       "team": {
-        "cash": 2497,
+        "cash": 4494,
         "dealsWon": 0,
         "pipelineOwned": 298,
         "apptsBooked": 1,
         "closeRate": "0.0%",
         "unassignedPipeline": 1,
         "unattributedCash": 2060,
-        "stripeCollected": 4557,
+        "stripeCollected": 6554,
         "tiers": [
           46667,
           93333,
@@ -99,7 +99,7 @@
           "rank": 1,
           "name": "Caleb Chase",
           "first": "Caleb",
-          "cash": 2497,
+          "cash": 4494,
           "target": 35000,
           "dealsWon": 0,
           "pipelineOwned": 274,
@@ -141,14 +141,14 @@
       "window": "1 Jul to 28 Jul 2026",
       "targetPerRep": 150000,
       "team": {
-        "cash": 13479,
-        "dealsWon": 8,
+        "cash": 15476,
+        "dealsWon": 9,
         "pipelineOwned": 298,
         "apptsBooked": 119,
-        "closeRate": "2.7%",
+        "closeRate": "3.0%",
         "unassignedPipeline": 1,
         "unattributedCash": 2060,
-        "stripeCollected": 15539,
+        "stripeCollected": 17536,
         "tiers": [
           200000,
           400000,
@@ -160,12 +160,12 @@
           "rank": 1,
           "name": "Caleb Chase",
           "first": "Caleb",
-          "cash": 13479,
+          "cash": 15476,
           "target": 150000,
-          "dealsWon": 8,
+          "dealsWon": 9,
           "pipelineOwned": 274,
           "apptsBooked": 112,
-          "closeRate": "2.9%",
+          "closeRate": "3.3%",
           "ghlId": "KyR0lFZOC0l0GQHM6SLv",
           "photo": null
         },
@@ -199,10 +199,10 @@
     }
   },
   "reconciliation": {
-    "ghlCash": 15539,
-    "stripeCash": 15539,
+    "ghlCash": 17536,
+    "stripeCash": 17536,
     "deltaCents": 0,
     "status": "reconciled",
-    "checkedAt": "2026-07-28T02:02:13+10:00"
+    "checkedAt": "2026-07-28T23:15:49+10:00"
   }
 }
