@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-08-12",
+  "asOf": "2026-08-13",
   "source": "GoHighLevel opportunities + Stripe payments (live)",
   "rankBy": "cash, then deals won, then pipeline owned",
   "cashTargetPerRep": 150000,
@@ -16,17 +16,17 @@
   "periods": {
     "daily": {
       "label": "Today",
-      "window": "12 Aug 2026",
+      "window": "13 Aug 2026",
       "targetPerRep": 5000,
       "team": {
-        "cash": 997,
+        "cash": 0,
         "dealsWon": 0,
         "pipelineOwned": 318,
         "apptsBooked": 0,
         "closeRate": "0.0%",
         "unassignedPipeline": 1,
         "unattributedCash": 0,
-        "stripeCollected": 997,
+        "stripeCollected": 0,
         "tiers": [
           6667,
           13333,
@@ -38,7 +38,7 @@
           "rank": 1,
           "name": "Caleb Chase",
           "first": "Caleb",
-          "cash": 997,
+          "cash": 0,
           "target": 5000,
           "dealsWon": 0,
           "pipelineOwned": 289,
@@ -77,7 +77,7 @@
     },
     "weekly": {
       "label": "This Week",
-      "window": "10 Aug to 12 Aug 2026",
+      "window": "10 Aug to 13 Aug 2026",
       "targetPerRep": 35000,
       "team": {
         "cash": 997,
@@ -138,7 +138,7 @@
     },
     "monthly": {
       "label": "This Month",
-      "window": "1 Aug to 12 Aug 2026",
+      "window": "1 Aug to 13 Aug 2026",
       "targetPerRep": 150000,
       "team": {
         "cash": 997,
@@ -203,6 +203,6 @@
     "stripeCash": 997,
     "deltaCents": 0,
     "status": "reconciled",
-    "checkedAt": "2026-08-12T18:20:57+10:00"
+    "checkedAt": "2026-08-13T18:23:34+10:00"
   }
 }
