@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-08-28",
+  "asOf": "2026-08-29",
   "source": "GoHighLevel opportunities + Stripe payments (live)",
   "rankBy": "cash, then deals won, then pipeline owned",
   "cashTargetPerRep": 150000,
@@ -16,12 +16,12 @@
   "periods": {
     "daily": {
       "label": "Today",
-      "window": "28 Aug 2026",
+      "window": "29 Aug 2026",
       "targetPerRep": 5000,
       "team": {
         "cash": 0,
         "dealsWon": 0,
-        "pipelineOwned": 313,
+        "pipelineOwned": 314,
         "apptsBooked": 0,
         "closeRate": "0.0%",
         "unassignedPipeline": 2,
@@ -41,7 +41,7 @@
           "cash": 0,
           "target": 5000,
           "dealsWon": 0,
-          "pipelineOwned": 285,
+          "pipelineOwned": 286,
           "apptsBooked": 0,
           "closeRate": "0.0%",
           "ghlId": "KyR0lFZOC0l0GQHM6SLv",
@@ -77,17 +77,17 @@
     },
     "weekly": {
       "label": "This Week",
-      "window": "24 Aug to 28 Aug 2026",
+      "window": "24 Aug to 29 Aug 2026",
       "targetPerRep": 35000,
       "team": {
         "cash": 0,
         "dealsWon": 0,
-        "pipelineOwned": 313,
+        "pipelineOwned": 314,
         "apptsBooked": 0,
         "closeRate": "0.0%",
         "unassignedPipeline": 2,
-        "unattributedCash": 0,
-        "stripeCollected": 0,
+        "unattributedCash": 300,
+        "stripeCollected": 300,
         "tiers": [
           46667,
           93333,
@@ -102,7 +102,7 @@
           "cash": 0,
           "target": 35000,
           "dealsWon": 0,
-          "pipelineOwned": 285,
+          "pipelineOwned": 286,
           "apptsBooked": 0,
           "closeRate": "0.0%",
           "ghlId": "KyR0lFZOC0l0GQHM6SLv",
@@ -138,17 +138,17 @@
     },
     "monthly": {
       "label": "This Month",
-      "window": "1 Aug to 28 Aug 2026",
+      "window": "1 Aug to 29 Aug 2026",
       "targetPerRep": 150000,
       "team": {
         "cash": 997,
         "dealsWon": 0,
-        "pipelineOwned": 313,
+        "pipelineOwned": 314,
         "apptsBooked": 12,
         "closeRate": "0.0%",
         "unassignedPipeline": 2,
-        "unattributedCash": 192,
-        "stripeCollected": 1189,
+        "unattributedCash": 492,
+        "stripeCollected": 1489,
         "tiers": [
           200000,
           400000,
@@ -163,7 +163,7 @@
           "cash": 997,
           "target": 150000,
           "dealsWon": 0,
-          "pipelineOwned": 285,
+          "pipelineOwned": 286,
           "apptsBooked": 12,
           "closeRate": "0.0%",
           "ghlId": "KyR0lFZOC0l0GQHM6SLv",
@@ -199,10 +199,10 @@
     }
   },
   "reconciliation": {
-    "ghlCash": 1189,
-    "stripeCash": 1189,
+    "ghlCash": 1489,
+    "stripeCash": 1489,
     "deltaCents": 0,
     "status": "reconciled",
-    "checkedAt": "2026-08-28T04:09:21+10:00"
+    "checkedAt": "2026-08-29T05:19:34+10:00"
   }
 }
