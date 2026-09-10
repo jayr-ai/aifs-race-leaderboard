@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-09",
+  "asOf": "2026-09-10",
   "source": "GoHighLevel opportunities + Stripe payments (live)",
   "rankBy": "cash, then deals won, then pipeline owned",
   "cashTargetPerRep": 150000,
@@ -16,7 +16,7 @@
   "periods": {
     "daily": {
       "label": "Today",
-      "window": "9 Sep 2026",
+      "window": "10 Sep 2026",
       "targetPerRep": 5000,
       "team": {
         "cash": 0,
@@ -24,9 +24,9 @@
         "pipelineOwned": 314,
         "apptsBooked": 0,
         "closeRate": "0.0%",
-        "unassignedPipeline": 2,
-        "unattributedCash": 0,
-        "stripeCollected": 0,
+        "unassignedPipeline": 3,
+        "unattributedCash": 5497,
+        "stripeCollected": 5497,
         "tiers": [
           6667,
           13333,
@@ -77,7 +77,7 @@
     },
     "weekly": {
       "label": "This Week",
-      "window": "7 Sep to 9 Sep 2026",
+      "window": "7 Sep to 10 Sep 2026",
       "targetPerRep": 35000,
       "team": {
         "cash": 0,
@@ -85,9 +85,9 @@
         "pipelineOwned": 314,
         "apptsBooked": 0,
         "closeRate": "0.0%",
-        "unassignedPipeline": 2,
-        "unattributedCash": 0,
-        "stripeCollected": 0,
+        "unassignedPipeline": 3,
+        "unattributedCash": 5497,
+        "stripeCollected": 5497,
         "tiers": [
           46667,
           93333,
@@ -138,7 +138,7 @@
     },
     "monthly": {
       "label": "This Month",
-      "window": "1 Sep to 9 Sep 2026",
+      "window": "1 Sep to 10 Sep 2026",
       "targetPerRep": 150000,
       "team": {
         "cash": 0,
@@ -146,9 +146,9 @@
         "pipelineOwned": 314,
         "apptsBooked": 0,
         "closeRate": "0.0%",
-        "unassignedPipeline": 2,
-        "unattributedCash": 500,
-        "stripeCollected": 500,
+        "unassignedPipeline": 3,
+        "unattributedCash": 5997,
+        "stripeCollected": 5997,
         "tiers": [
           200000,
           400000,
@@ -199,10 +199,10 @@
     }
   },
   "reconciliation": {
-    "ghlCash": 500,
-    "stripeCash": 500,
+    "ghlCash": 5997,
+    "stripeCash": 5997,
     "deltaCents": 0,
     "status": "reconciled",
-    "checkedAt": "2026-09-09T22:13:11+10:00"
+    "checkedAt": "2026-09-10T22:07:54+10:00"
   }
 }
