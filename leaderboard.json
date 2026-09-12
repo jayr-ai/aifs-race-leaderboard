@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-11",
+  "asOf": "2026-09-12",
   "source": "GoHighLevel opportunities + Stripe payments (live)",
   "rankBy": "cash, then deals won, then pipeline owned",
   "cashTargetPerRep": 150000,
@@ -16,7 +16,7 @@
   "periods": {
     "daily": {
       "label": "Today",
-      "window": "11 Sep 2026",
+      "window": "12 Sep 2026",
       "targetPerRep": 5000,
       "team": {
         "cash": 0,
@@ -25,8 +25,8 @@
         "apptsBooked": 0,
         "closeRate": "0.0%",
         "unassignedPipeline": 3,
-        "unattributedCash": 500,
-        "stripeCollected": 500,
+        "unattributedCash": 1997,
+        "stripeCollected": 1997,
         "tiers": [
           6667,
           13333,
@@ -77,7 +77,7 @@
     },
     "weekly": {
       "label": "This Week",
-      "window": "7 Sep to 11 Sep 2026",
+      "window": "7 Sep to 12 Sep 2026",
       "targetPerRep": 35000,
       "team": {
         "cash": 0,
@@ -86,8 +86,8 @@
         "apptsBooked": 0,
         "closeRate": "0.0%",
         "unassignedPipeline": 3,
-        "unattributedCash": 5997,
-        "stripeCollected": 5997,
+        "unattributedCash": 7994,
+        "stripeCollected": 7994,
         "tiers": [
           46667,
           93333,
@@ -138,7 +138,7 @@
     },
     "monthly": {
       "label": "This Month",
-      "window": "1 Sep to 11 Sep 2026",
+      "window": "1 Sep to 12 Sep 2026",
       "targetPerRep": 150000,
       "team": {
         "cash": 0,
@@ -147,8 +147,8 @@
         "apptsBooked": 0,
         "closeRate": "0.0%",
         "unassignedPipeline": 3,
-        "unattributedCash": 6497,
-        "stripeCollected": 6497,
+        "unattributedCash": 8494,
+        "stripeCollected": 8494,
         "tiers": [
           200000,
           400000,
@@ -199,10 +199,10 @@
     }
   },
   "reconciliation": {
-    "ghlCash": 6497,
-    "stripeCash": 6497,
+    "ghlCash": 8494,
+    "stripeCash": 8494,
     "deltaCents": 0,
     "status": "reconciled",
-    "checkedAt": "2026-09-11T22:05:28+10:00"
+    "checkedAt": "2026-09-12T21:31:55+10:00"
   }
 }
