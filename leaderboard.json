@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-20",
+  "asOf": "2026-09-21",
   "source": "GoHighLevel opportunities + Stripe payments (live)",
   "rankBy": "cash, then deals won, then pipeline owned",
   "cashTargetPerRep": 150000,
@@ -16,7 +16,7 @@
   "periods": {
     "daily": {
       "label": "Today",
-      "window": "20 Sep 2026",
+      "window": "21 Sep 2026",
       "targetPerRep": 5000,
       "team": {
         "cash": 0,
@@ -77,13 +77,13 @@
     },
     "weekly": {
       "label": "This Week",
-      "window": "14 Sep to 20 Sep 2026",
+      "window": "21 Sep 2026",
       "targetPerRep": 35000,
       "team": {
         "cash": 0,
         "dealsWon": 0,
         "pipelineOwned": 315,
-        "apptsBooked": 2,
+        "apptsBooked": 0,
         "closeRate": "0.0%",
         "unassignedPipeline": 3,
         "unattributedCash": 0,
@@ -103,7 +103,7 @@
           "target": 35000,
           "dealsWon": 0,
           "pipelineOwned": 287,
-          "apptsBooked": 2,
+          "apptsBooked": 0,
           "closeRate": "0.0%",
           "ghlId": "KyR0lFZOC0l0GQHM6SLv",
           "photo": null
@@ -138,7 +138,7 @@
     },
     "monthly": {
       "label": "This Month",
-      "window": "1 Sep to 20 Sep 2026",
+      "window": "1 Sep to 21 Sep 2026",
       "targetPerRep": 150000,
       "team": {
         "cash": 0,
@@ -203,6 +203,6 @@
     "stripeCash": 8494,
     "deltaCents": 0,
     "status": "reconciled",
-    "checkedAt": "2026-09-20T22:07:35+10:00"
+    "checkedAt": "2026-09-21T23:46:14+10:00"
   }
 }
